@@ -27,3 +27,13 @@ Wyswietli nam ze nasza zmienna $name_new jest typu int(integer)
 echo $name_new;
 // echo  "<h1> Witam </h1>";
 // echo ('<h3>Inny przyklad uzycia echo </h3>');
+
+/*
+Stałe w przeciwienstwie do zmiennych nie podlegaja zmianie 
+definiujemy je za pomoca define('nazwa_stałej',wartość);
+lub za pomoca slowa kluczowego 'const'
+*/
+define('New_variant',5);
+const Another_variant = 5;
+echo New_variant;
+echo Another_variant;
