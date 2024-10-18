@@ -57,8 +57,27 @@ Operatory arytmetyczne
 ** - potęgowanie
 */
 
-$num1 = 5;
-$num2 = 10;
+//$num1 = 5;
+//$num2 = 10;
 
-echo $num1 ** $num2;
+//echo $num1 ** $num2;
 
+/* Operatory cd 
+$count = 10;
+$count = $count + 5;
+da nam wynik 15 jednak mozna skrocic dany zapis do 
+$count += 5;
+istnieja rowniez inne operatory takie jak 
+
+-= - odejmowanie
++= - dodawnie
+*= - mnozenie 
+**= - potegowanie
+/= - dzielenie 
+%= - modulo
+
+*/
+
+$coin = 5;
+$coin /= 5; // zachodzi dzialanie $coin = $coin / 5
+echo $coin;
