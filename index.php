@@ -85,7 +85,14 @@ istnieja rowniez inne operatory takie jak
 Operator konkatenacji (łączenie stringow ze sobą)
 wywolujemy za pomoca "."
 */
+//$name = 'Adam';
+//$secondName = 'Paweł';
+//$fullName = $name ." ". $secondName; // pomiędzy " " jest puste pole jesli chcemy by oba imiona mialy miedzy soba odstep musimy to zrobic 
+//var_dump($fullName);                // gdy tego nie zrobimy wyswietli sei to w nastepujacy sposob AdamPawel
+
+/*
+Jest mozliwosc uzycia skrónej wersji konkateknacji
+*/
 $name = 'Adam';
-$secondName = 'Paweł';
-$fullName = $name ." ". $secondName; // pomiędzy " " jest puste pole jesli chcemy by oba imiona mialy miedzy soba odstep musimy to zrobic 
-var_dump($fullName);                // gdy tego nie zrobimy wyswietli sei to w nastepujacy sposob AdamPawel
+$name .= ' Arek';
+var_dump($name);
