@@ -69,15 +69,23 @@ da nam wynik 15 jednak mozna skrocic dany zapis do
 $count += 5;
 istnieja rowniez inne operatory takie jak 
 
--= - odejmowanie
-+= - dodawnie
-*= - mnozenie 
-**= - potegowanie
-/= - dzielenie 
-%= - modulo
+-= - odejmowanie***pelny zapis*** $coin = $coin - liczba
++= - dodawnie ***pelny zapis*** $coin = $coin + liczba
+*= - mnozenie ***pelny zapis*** $coin = $coin * liczba
+**= - potegowanie ***pelny zapis*** $coin = $coin ** liczba
+/= - dzielenie ***pelny zapis*** $coin = $coin / liczba
+%= - modulo ***pelny zapis*** $coin = $coin % liczba
 
 */
 
-$coin = 5;
-$coin /= 5; // zachodzi dzialanie $coin = $coin / 5
-echo $coin;
+//$coin = 5;
+//$coin /= 5; // zachodzi dzialanie $coin = $coin / 5
+//echo $coin;
+/*
+Operator konkatenacji (łączenie stringow ze sobą)
+wywolujemy za pomoca "."
+*/
+$name = 'Adam';
+$secondName = 'Paweł';
+$fullName = $name ." ". $secondName; // pomiędzy " " jest puste pole jesli chcemy by oba imiona mialy miedzy soba odstep musimy to zrobic 
+var_dump($fullName);                // gdy tego nie zrobimy wyswietli sei to w nastepujacy sposob AdamPawel
