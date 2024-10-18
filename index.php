@@ -4,7 +4,7 @@
 
 
 /*
-Typy zmiennych w php
+**************Typy zmiennych w php**************
 integer - liczby całkowite (dodatnie i ujemne)
 float - liczby rzeczywiste (dodatnie i ujemne )
 String - łancuch tekstowy
@@ -19,7 +19,7 @@ resource - przechowuje odwołanie do zasobu zewnetrzengo np bazy danych
 //$balance = 100;
 //$name_new = $coins + $balance;
 /*
-Za pomoca funkcji var_dump mozemy sprawdzic jakiego typu jest nasza zmienna 
+**************Za pomoca funkcji var_dump mozemy sprawdzic jakiego typu jest nasza zmienna **************
 przyklad 
 var_dump($name_new);
 Wyswietli nam ze nasza zmienna $name_new jest typu int(integer)
@@ -29,7 +29,7 @@ Wyswietli nam ze nasza zmienna $name_new jest typu int(integer)
 // echo ('<h3>Inny przyklad uzycia echo </h3>');
 
 /*
-Stałe w przeciwienstwie do zmiennych nie podlegaja zmianie 
+**************Stałe w przeciwienstwie do zmiennych nie podlegaja zmianie **************
 definiujemy je za pomoca define('nazwa_stałej',wartość);
 lub za pomoca slowa kluczowego 'const'
 */
@@ -39,7 +39,7 @@ lub za pomoca slowa kluczowego 'const'
 //echo ANOTHER_TEST;
 
 /*
-Operator przypisania = , przypisuje nam wartosc do zmiennych 
+**************Operator przypisania = , przypisuje nam wartosc do zmiennych **************
 Mozna przypisac jedna wartosc do kilku zmiennych 
 */
 // Przyklad przypisania wartosci do kilku zmiennych jednoczesnie 
@@ -48,7 +48,7 @@ Mozna przypisac jedna wartosc do kilku zmiennych
 //var_dump($sameName);
 
 /*
-Operatory arytmetyczne 
+**************Operatory arytmetyczne **************
 + - dodawanie
 - - odejmowanie
 * - mnozenie
@@ -62,7 +62,7 @@ Operatory arytmetyczne
 
 //echo $num1 ** $num2;
 
-/* Operatory cd 
+/* **************Operatory cd **************
 $count = 10;
 $count = $count + 5;
 da nam wynik 15 jednak mozna skrocic dany zapis do 
@@ -82,7 +82,7 @@ istnieja rowniez inne operatory takie jak
 //$coin /= 5; // zachodzi dzialanie $coin = $coin / 5
 //echo $coin;
 /*
-Operator konkatenacji (łączenie stringow ze sobą)
+**************Operator konkatenacji (łączenie stringow ze sobą)**************
 wywolujemy za pomoca "."
 */
 //$name = 'Adam';
@@ -99,7 +99,7 @@ Jest mozliwosc uzycia skrónej wersji konkateknacji
 
 /*
 Operatory pre/post inkrementacji i dekrementacji
-Postinkrementacja
+****************Postinkrementacja**************
 Operatorem jest ++ , 
 
 - inicjujemy zmienna
@@ -121,3 +121,27 @@ $number = 5;  // $number += 1;
 echo $number++;  // zmienna number teraz przyjmie wartosc 6 
 var_dump($number);
 */
+
+/*
+**************Preinkrementacja**************
+Analogicznie do postinkrementacji 
+-wez wartosc zmiennej
+-zwieksz o 1
+-przypisz ponownie zwiekszona o 1
+
+jak sama nazwa wskazuje , zwiekszenie wartosci nastepuje we wczesniejszym etapie 
+
+przyklad pre inkrementacji 
+
+$age = 5;
+var_dump(++$age); // od razu zwracam nam wartosc zwiekszona o 1 
+var_dump($age);
+*/
+
+/*
+**************Pre i post dekrementacja dzialaja analogicznie **************$age = 5;
+var_dump(--$age); // od razu zwracam nam wartosc zwiekszona o 1 
+var_dump($age);
+postdekrementacja dziala analogicznie 
+*/
+
