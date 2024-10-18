@@ -93,6 +93,31 @@ wywolujemy za pomoca "."
 /*
 Jest mozliwosc uzycia skrónej wersji konkateknacji
 */
-$name = 'Adam';
-$name .= ' Arek';
-var_dump($name);
+//$name = 'Adam';
+//$name .= 'Arek'; // $name = $name . "Arek"
+//var_dump($name);
+
+/*
+Operatory pre/post inkrementacji i dekrementacji
+Postinkrementacja
+Operatorem jest ++ , 
+
+- inicjujemy zmienna
+- uzywamy operatora postinkrementacji 
+- wyswietlamy ponownie wartosc zmiennej
+
+- najpierw zwraca stara wartosc pozniej ja zwieksza
+
+Jak dziala ten operator 
+-wez wartosc ktora znajduje sie w zmiennej
+- zwróc ta wartosc 
+- powiększ wartosc o 1
+- przypisz ponownie nowa wartosc (zwiekszona o 1) do zmiennej
+*/
+/*
+Przyklad uzycia postinkrementacji 
+
+$number = 5;  // $number += 1;
+echo $number++;  // zmienna number teraz przyjmie wartosc 6 
+var_dump($number);
+*/
