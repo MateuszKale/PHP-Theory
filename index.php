@@ -145,3 +145,42 @@ var_dump($age);
 postdekrementacja dziala analogicznie 
 */
 
+/*
+**************Operatory Porównania**************
+Deklarujemy je za pomoca == lub ===
+== - porownuje czy wartosc po lewej jest taka sama jak wartosc po prawej.
+=== - porobuje czy wartosc i TYP po lewej jest taki sam jak po prawej
+W obu przypadkach zawsze zwróci nam wartość bool ( True albo False)
+
+
+Przyklady 
+var_dump('foo' == 'bar'); Da nam false poniewaz oba stringi maja inna wartosc
+var_dump(8 === '8'); Da nam fałsz ponieważ wartość po lewej jest stringiem a po prawej int
+var_dump(8 == '8'); Da nam True poniewaz wartosc po lewej i po prawej sa takie same 
+
+$name = 'anna';
+$secondName = 'Anna';
+var_dump($name === $secondName);
+
+*/
+
+/*
+**************Operatory Sprawdzajace**************
+Analogicznie do operatorow porowaniai sprawadz czy wartosci i typy sa inne , wywolujemy je za pomoca
+!= - sprawdza czy wartosci sa roznie
+!== - sprawdza czy wartosci i typy sa rozne 
+Przyklady 
+$name = 'Anna';
+$secondName = 'Anna';
+var_dump($name != $secondName); da nam wartosc false poniewaz obie wartosci zmiennych sa takei same
+
+$name = 'Anna';
+$secondName = 'Anna';
+var_dump($name !== $secondName); da nam wartosc false poniewaz obie wartosci zmiennych i ich typy  sa takei same
+
+$name = 'Anna';
+$digit = 9;
+var_dump($name !== $secondName); da nam wartosc true poniewaz obie wartosci zmiennych i ich typy sie roznia
+
+*/
+
