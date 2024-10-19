@@ -167,7 +167,7 @@ var_dump($name === $secondName);
 /*
 **************Operatory Sprawdzajace**************
 Analogicznie do operatorow porowaniai sprawadz czy wartosci i typy sa inne , wywolujemy je za pomoca
-!= - sprawdza czy wartosci sa roznie
+!= - sprawdza czy wartosci sa rozne
 !== - sprawdza czy wartosci i typy sa rozne 
 Przyklady 
 $name = 'Anna';
@@ -182,5 +182,14 @@ $name = 'Anna';
 $digit = 9;
 var_dump($name !== $secondName); da nam wartosc true poniewaz obie wartosci zmiennych i ich typy sie roznia
 
+
+Mamy takze inne operatory sprawdzajace 
+> - wieksze
+>= - wieksze bądz rowne
+< - mniejsze 
+<= - mniejsze badz rowne 
 */
 
+$name = 'Anna';
+$secondName = 'Anna';
+var_dump($name !== $secondName);
