@@ -185,11 +185,13 @@ var_dump($name !== $secondName); da nam wartosc true poniewaz obie wartosci zmie
 
 Mamy takze inne operatory sprawdzajace 
 > - wieksze
+var_dump(9 >= 8); - True liczba 9 jest wieksza bądz rowna 8
 >= - wieksze bądz rowne
+var_dump(9 > 8); - True liczba 9 jest wieksza od liczby 8
 < - mniejsze 
+var_dump(12 <= 8); - False liczba 9 jest wieksza od liczby 8
 <= - mniejsze badz rowne 
+var_dump(9 < 8); - False liczba 9 jest wieksza od liczby 8
+
 */
 
-$name = 'Anna';
-$secondName = 'Anna';
-var_dump($name !== $secondName);
