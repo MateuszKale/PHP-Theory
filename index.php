@@ -195,3 +195,15 @@ var_dump(9 < 8); - False liczba 9 jest wieksza od liczby 8
 
 */
 
+
+/*
+******************Space Ship ***************
+<=> - zapis
+Uzywamy go do porownywania wartosci i w zaleznosci od wyniku mozew nam zwrocic 3 wartosci
+- 0 - gdy obie wartosci sa rowne
+- -1 - gdy lewa wartosc jest mniejsza od prawej
+- 1 - gdy prawa wartosc jest wieksza od lewej
+
+*/
+
+var_dump(93 <=> 92);
