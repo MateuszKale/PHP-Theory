@@ -221,16 +221,44 @@ przy apostrofach nie jest to robione wiec wyswietli nam nazwe zmiennej
 $example1 = 'Ala ma kota ma $age lat';  wynik "Ala ma kota ma $age lat"
 $example2 = "Ala ma kota $age lat"; wynik "Ala ma kota 4 lat"
 Jest jeszcze 3cia mozliwosc na uzycie  apostrofow i wywolanie zmiennej , potrzebujemy konkatenacji np
+$age = 4;
+$example3 = 'Ala ma kota ma ' . $age . ' lat';
+Jak widac mozna to zrobic ale jest nieco więcej zachodu jak z uzyciem cudzyslowi
 
 
 var_dump($example1);
 var_dump($example2);
 
+Jesli nie musimy sie odnosic do zmiennej to uzywamy apostrofow , jesli musimy to uzywamy cudzyslowi , zwiekszy to nieco wydajnosc naszego kodu 
 
 Czym jest parsowanie w php ?    
 
 parsowanie w PHP to sposób na przekształcanie surowych danych, takich jak tekst, na format, który program potrafi efektywnie zinterpretować i wykorzystać.
 */
-$age = 4;
-$example3 = 'Ala ma kota ma ' . $age . ' lat';
-var_dump($example3);
+
+/*
+***************Tablice*************
+Są to takie 'pojemniki' na dane do ktorych mozemy wsadzac i wyciagac dane
+Jest uporzadkowana lista elementow 
+elementy - przechowuja dane ktore moga byc dowolnego np string int itp
+Tablice sa bardzo uzyteczne gdy posiadmy zbior jakis powiazanych ze soba danych 
+*/
+//$employee1 = 'Jan Kowalski';
+//$employee2 = 'Zbigniew Nowak';
+//$employee3 = 'Jadwiga Kaczmarska';
+
+// zapis tablicowy
+//$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska']; // Mozemy recznie wpisac dane do tablicy
+
+//$test = [$employee1, $employee2, $employee3]; // przyklad wpisania danych do tablicy przy pomocyzmiennych
+
+/* mozemy tez wywołac dowolny element z naszej tablicy przy pomocy indeksow 
+[0] => Jan Kowalski
+[1] => Zbigniew Nowak
+[2] => Jadwiga Kaczmarska
+print_r($user[numer indeksu]);
+
+
+
+Zapamietac ze var_dump i print_r uzywac tylko w trakcie pisania kodu , nie uzywac ich do dostarczania informacji uzytkownikowi
+*/
