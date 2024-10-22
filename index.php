@@ -202,8 +202,35 @@ var_dump(9 < 8); - False liczba 9 jest wieksza od liczby 8
 Uzywamy go do porownywania wartosci i w zaleznosci od wyniku mozew nam zwrocic 3 wartosci
 - 0 - gdy obie wartosci sa rowne
 - -1 - gdy lewa wartosc jest mniejsza od prawej
-- 1 - gdy prawa wartosc jest wieksza od lewej
+- 1 - gdy prawa wartosc jest mniejsza od lewej
+var_dump(93 <=> 92); da nam 1
+var_dump(91 <=> 92); da nam -1
+var_dump(92 <=> 92); da nam 0
+
+var_dump(93 <=> 92);
 
 */
 
-var_dump(93 <=> 92);
+/*
+**************Łańcuchy znakow (string)**************
+Roznice pomiedzy apostrofami a cudzyslowiami 
+Przy cudzyslowiach , program interpetuje caly tekst przez to mozemy wstawic zmienna w srodek i wyswietli nam jej wartosc natomiast 
+przy apostrofach nie jest to robione wiec wyswietli nam nazwe zmiennej
+
+
+$example1 = 'Ala ma kota ma $age lat';  wynik "Ala ma kota ma $age lat"
+$example2 = "Ala ma kota $age lat"; wynik "Ala ma kota 4 lat"
+Jest jeszcze 3cia mozliwosc na uzycie  apostrofow i wywolanie zmiennej , potrzebujemy konkatenacji np
+
+
+var_dump($example1);
+var_dump($example2);
+
+
+Czym jest parsowanie w php ?    
+
+parsowanie w PHP to sposób na przekształcanie surowych danych, takich jak tekst, na format, który program potrafi efektywnie zinterpretować i wykorzystać.
+*/
+$age = 4;
+$example3 = 'Ala ma kota ma ' . $age . ' lat';
+var_dump($example3);
