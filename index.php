@@ -261,4 +261,25 @@ print_r($user[numer indeksu]);
 
 
 Zapamietac ze var_dump i print_r uzywac tylko w trakcie pisania kodu , nie uzywac ich do dostarczania informacji uzytkownikowi
+
+Mozemy tez wstawiac/zmieniac emelenty na danym indeksie 
+
+przyklad 
+
+$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
+$user[1] = 'Anna Kowalska'; / zamieniamy element ktory znajduje sie pod indeksem 1
+
+print_r($user);
+
+wyswietli nam teraz 
+    [0] => Jan Kowalski
+    [1] => Anna Kowalska
+    [2] => Jadwiga Kaczmarska
+
+Mozemy takze dodac element pod dowolny przez nas indeks (nie musi byc nic przypisane do podanego indeksu )
+
+np 
+$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
+$user[11] = 'Anna Kowalska'; // Dodajemy teraz nowy element pod indeks 11
+
 */
