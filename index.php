@@ -282,4 +282,27 @@ np
 $user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
 $user[11] = 'Anna Kowalska'; // Dodajemy teraz nowy element pod indeks 11
 
+
+Mozemy tez skopiowac element poza tablice np przypisac dany element do innej zmiennej/tablicy jesli bedziemy wiedziec ze w przyslzosci sie nam jeszcze przyda
+
+$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
+
+$oldUser = $user[1]; // kopiujemy element z pierwszego indeksu i przypisujemy go do nowej zmiennej
+$user[1] = 'Jan Matejko'; // zastepujemy element z pierwszego indeksu na inny element
+
+var_dump($user); / Wyswietli nam tablice z podmienionym juz elementem
+var_dump($oldUser); // w tej zmiennej przechowujemy wczesniej skopiowany element z tablicy 
+
+//
+stworzenie tablicy ktora w elementach posiada inne tablice
+$worker1 = ['Jan Kowalski' , 'magazynier'];
+$worker2 = ['Zbigniew Nowak', 'handlowiec'];
+$worker3 = ['Jadwiga Kaczmarska', 'Hr'];
+
+
+$user =[$worker1,$worker2,$worker3];
+echo("Dane pracownika $worker1[0],stanowisko pracownika $worker1[1]");
 */
+
+
+
