@@ -302,7 +302,13 @@ $worker3 = ['Jadwiga Kaczmarska', 'Hr'];
 
 $user =[$worker1,$worker2,$worker3];
 echo("Dane pracownika $worker1[0],stanowisko pracownika $worker1[1]");
+
+Jak przypisac nowy element na kolejnym wolnym indeksie ?
+
 */
 
+$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
+$user[] = 'Adam Kacz';
+print_r($user);
 
 
