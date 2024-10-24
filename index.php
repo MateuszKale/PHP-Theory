@@ -305,10 +305,24 @@ echo("Dane pracownika $worker1[0],stanowisko pracownika $worker1[1]");
 
 Jak przypisac nowy element na kolejnym wolnym indeksie ?
 
-*/
+wywolujemy nasza tablice (bez podawania indeksu)
+wtedy nasz nowy element bedzie sie znajdowal na samym koncu naszej tablicy 
+przyklad 
+
+$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
+$user[] = 'Adam Kacz'; // deklarujemy do ktorej tablicy chcemy dodac nowy element nastepnie ja wywolujemy 
+print_r($user);         // jesli chcemy by byl dodany na samym koncu to nie wpisujemy indeksu , jesli chcemy go dodac na wybranym przez nas indeksie musimy wpisac numer indeksu 
+                        / pod ktory chcemy go dodac
+
 
 $user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
 $user[] = 'Adam Kacz';
+
+unset($user[2]); // nowa funkcja , usuwa nam elementy z naszej tablicy
+$user[]='Test';
 print_r($user);
+
+*/
+
 
 
