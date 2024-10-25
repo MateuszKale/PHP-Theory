@@ -237,7 +237,7 @@ parsowanie w PHP to sposób na przekształcanie surowych danych, takich jak teks
 */
 
 /*
-***************Tablice*************
+***************Tablice numeryczne*************
 Są to takie 'pojemniki' na dane do ktorych mozemy wsadzac i wyciagac dane
 Jest uporzadkowana lista elementow 
 elementy - przechowuja dane ktore moga byc dowolnego np string int itp
@@ -325,6 +325,11 @@ print_r($user);
 funkcja count -
 uzywamy jej np var_dump(count($user));
 zlicza nam ona ilosc elementow w naszej tablicy
+
+$user =['Jan Kowalski', 'Zbigniew Nowak', 'Jadwiga Kaczmarska'];
+$number = count($user);
+echo "Ilość elementow w tablicy $number";
+
 */
 
 /*
@@ -335,6 +340,11 @@ print_r($user);
 
 Jak widac w powyzszym przykladzie nie musimy zaczynac zawsze od pierwszego indeksu w naszej tablicy
 
+$user =[3 =>'Jan Kowalski','Zbigniew Nowak','Jadwiga Kaczmarska'];
+print_r($user);
+
+Gdy przypiszemy pierwszy indeks jezyk php uzupelni nam kolejne w kolejnosci czyli w powyszym prrzykladzie bedzie to 3 4 5 
+
 Kazdy kolejny element bedzie dodawany w nastepnej w kolejnosci wolnym indeksie np 
 
 $user =[3 =>'Jan Kowalski', 4=>'Zbigniew Nowak', 5=> 'Jadwiga Kaczmarska'];
@@ -343,7 +353,38 @@ print_r($user);
 
 */
 
+/*
+**************Tablice asocjacyjne***********
+Są to tablice gdzie indexy moga byc stringami
+Przydaje sie do przechowywania list
+przyklad
 
+$user = [
+    'firstName' => 'Jan',
+    'lastName' => 'Kowalski',
+    'age' => 22,
+];
+print_r($user);
+
+mozemy tez mieszac indeksy ( raz string raz liczba) ale jest to raczej rzadko robione i bardzo niepraktyczne 
+
+Tu bardziej zaawansowany przyklad uzycia tablicy asocjacyjnej
+$employee = [
+    "uzytkownik1" => [
+        "imie" => "Adam",
+        "wiek" => 25,
+        "email" => "adam@example.com"
+    ],
+    "uzytkownik2" => [
+        "imie" => "Ewa",
+        "wiek" => 30,
+        "email" => "ewa@example.com"
+    ]
+];
+
+
+
+*/
 
 
 
