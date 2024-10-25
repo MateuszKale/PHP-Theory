@@ -368,7 +368,7 @@ print_r($user);
 
 mozemy tez mieszac indeksy ( raz string raz liczba) ale jest to raczej rzadko robione i bardzo niepraktyczne 
 
-Tu bardziej zaawansowany przyklad uzycia tablicy asocjacyjnej
+Tu bardziej zaawansowany przyklad uzycia tablicy asocjacyjnej i zagniezdzania tablic asocjacyjnych
 $employee = [
     "uzytkownik1" => [
         "imie" => "Adam",
@@ -382,9 +382,29 @@ $employee = [
     ]
 ];
 
+Jak sie odwołać do takich zagniezdzonych tablic, np wywołajmy adres e mail adama
 
+$employee = [
+    "uzytkownik1" => [
+        "imie" => "Adam",
+        "wiek" => 25,
+        "email" => "adam@example.com"
+    ],
+    "uzytkownik2" => [
+        "imie" => "Ewa",
+        "wiek" => 30,
+        "email" => "ewa@example.com"
+    ]
+];
 
+print_r($employee['uzytkownik1']['email']); // wybieramy pierw zagniezdzona tablice a nastepnie uzywamy indeksu pod ktorym znajduje sie adres e mail
+
+ew mozemy tez uzyc tego ssposobu
+$employee1 = $employee['uzytkownik1']['email'];
+print_r($employee1);
 */
+
+
 
 
 
