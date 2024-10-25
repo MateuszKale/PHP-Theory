@@ -335,7 +335,15 @@ print_r($user);
 
 Jak widac w powyzszym przykladzie nie musimy zaczynac zawsze od pierwszego indeksu w naszej tablicy
 
+Kazdy kolejny element bedzie dodawany w nastepnej w kolejnosci wolnym indeksie np 
+
+$user =[3 =>'Jan Kowalski', 4=>'Zbigniew Nowak', 5=> 'Jadwiga Kaczmarska'];
+$user[]='Test'; // Ten element bedzie dodany na indeksie 6 poniewaz jest najbliszym wolnym indeksem
+print_r($user);
+
 */
+
+
 
 
 
