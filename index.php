@@ -322,6 +322,19 @@ unset($user[2]); // nowa funkcja , usuwa nam elementy z naszej tablicy
 $user[]='Test';
 print_r($user);
 
+funkcja count -
+uzywamy jej np var_dump(count($user));
+zlicza nam ona ilosc elementow w naszej tablicy
+*/
+
+/*
+Mozemuy tez przypisac dowolne indeksy / nazwy indeksow , np
+
+$user =[3 =>'Jan Kowalski', 4=>'Zbigniew Nowak', 5=> 'Jadwiga Kaczmarska'];
+print_r($user);
+
+Jak widac w powyzszym przykladzie nie musimy zaczynac zawsze od pierwszego indeksu w naszej tablicy
+
 */
 
 
