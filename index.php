@@ -405,6 +405,49 @@ print_r($employee1);
 */
 
 
+/*
+***********Struktury Kontrolne***********
+Naleza do nich instrukcje warunkowe if else itp oraz petle
+*/
+
+/*
+***************Instrukcja warunkowa "if"*************** 
+Konstrukcja
+if (wyrazenie do sprawdzenia) {
+    //kod wykonania jesli wyrazenie jest prawdziwe
+}
+If mozemy sobie przetlumaczyc na polski jako jesli/jezeli 
+czyli na przykladzie ponizszym mozemy sprawdzic czy ktos moze kupic bilet do kina na film przeznaczony na 17 lub wiecej lat
+$age = 20;
+
+if ($age>= 17) {  \\ instrukcja warunkowa sprawdza czy uzytkowanik ma 17 lub wiecej lat
+    echo 'Mozesz kupic Bilet'; // jesli wyrazenie bedzie mialo wartosc true , to wyswietli sie nam ten komunikat
+}           // jesli np nasza instrukcja waruknowa przyjmie wartosc false(albo warunek nie zostanie wykonany)
+echo 'Niestety nie mozesz kupic biletu';        /// to nasz kod przejdzie do kolejnej lini nie wykonujac tego co jest pod naszym ifem
+
+Czyli podsumowujac , nasza linijka kodu wykona sie gdy wyrazenie do sprawdzenia przyjmie wartosc true , 
+
+Najczesciej do sprawdzenia czy instrukcja jest prawidziwa uzywamy operatorow porownania 
+==
+===
+!=
+!==
+>
+itp
 
 
+Kiedy otrzymamy false podczas rzutowania ?  
+0 i -0
+0.0 i -0.0
+"" i "0"
+[] - pusta tablica
+ null
 
+*/
+
+
+$number = 6;
+
+if ($number >= 4) {
+    echo "Liczba $number jest wieksza od 4";
+}
