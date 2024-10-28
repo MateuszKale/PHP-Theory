@@ -601,10 +601,12 @@ var_dump(0 xor 3); // true
 
 Wszystkich wyrazn mozemy uzywac w dowolnej ilosci i kombinacji 
 
-*/
 
-if ($age > 20 && $myWallet >300 && ($localization ='Kielce' || $localization = 'Kraków')) {
+if ($age > 20 && $myWallet >300 && ($localization == 'Kielce' || $localization == 'Kraków')) {
     echo 'Wszystko sie zgadza';
 }else {
     echo 'Cos poszło nie tak';
 }
+
+*/
+
