@@ -486,8 +486,7 @@ if ($age >= 17){
 
 ale mozemy tez uzyc instrukcji elseif np 
 
-*/
-
+Gdy potrzebujemy wstawic wiecej niz jeden warunek mozemy wstawic tyle elseifow ile nam potrzeba
 
 $age = 7;
 
@@ -499,4 +498,113 @@ if ($age >= 17){
     echo 'Proponuje obejrzec inny film';
 }else{ // Wykona sie jesli powyzsze wyrazenia przyjma wartosc false
     echo'Jestes za mlody na filmy ktore wyswietlamy w obecnej chwili';
+}
+ 
+*/
+
+
+/*
+
+*************Ternary operator**********
+Jest to skrócony zapis if else czyli zapisu "?:"
+
+$grade = 5;
+if ($grade >4 ){
+    $mood = 'happy';
+} else {
+    $mood = 'sad';
+}
+
+echo $mood;
+
+mozemy to skrocic w nastepujacy sposob
+
+/ wyrazenie do sprawdzenia ? wykonaj jesli prawda : wykonaj jesli falsz
+$mood = $grade > 4 ? 'happy' : 'sad';
+echo $mood
+
+jak widac finalnie oba przyklady zadzialaja tak samo , jednak drugi charakteryzuje sie ktorszym zapisaem ,
+warto zaznaczyc ze nie poleca sie uzywania krotkiego zapisu do tworzenia rozbudowanych warunkow
+*/
+
+/*
+
+****************Operatory logiczne cd *******************
+Operator logiczny ktory przyda sie do if jest && (and)
+dzieki niemu mozemy sprawdzic kilka warunkow na raz 
+
+np tak wyglada kod bez uzycia tego  operatora 
+$age = 17;
+$wallet = 2;
+$ticketPrice = 15;
+
+if ($age>=17){
+    if ($wallet >$ticketPrice){
+        echo "Bilet kupiony";
+    }else{
+        echo'Nie masz tylu pieniedzy';
+    }
+}else{
+    echo'Nie spelniasz warunkow wiekowych na ten film';
+}
+
+tutaj z uzyciem nowo poznanego operatora logicznego
+
+$age = 17;
+$wallet = 225;
+$ticketPrice = 15;
+
+if ($age>=17 && $wallet > $ticketPrice){
+    echo 'Bilet kupiony';
+}else{
+    echo 'Nie udało ci sie kupic biletu';
+}
+
+jak widac nasz kod mocno sie uproscil
+
+
+|| - or - daje prawde gdy jedno wyrazenie jest prawdziwe (wyrazenie po lewej lub prawej stronie usi byc prawdziwe)
+
+przyklad uzycia 
+
+$age = 15;
+$wallet = 225;
+$ticketPrice = 15;
+
+if ($age>=17 || $wallet > $ticketPrice){
+    echo 'Bilet kupiony';
+}else{
+    echo 'Nie udało ci sie kupic biletu';
+}
+
+xor - daje prawde gdy tylko jedno wyrazenie jest prawdziwe (po lewej lub po prawej)
+! - negacja - sprawdza czy wyrazenie nie jest prawdziwe
+Wynikami tych operatorow logicznych zawsze bedzie bool , czyli true albo false
+Mozemy ich uzywac nie tylko przy ifach ale tez innych przypadkach przyklady dzialan wszystkich operatorow
+
+$a = 1 && 2;
+var_dump($a);
+ 
+var_dump(1 && 0); // fasle
+var_dump(1 && false);  // false
+
+var_dump(0 || 1); // true
+var_dump(true || false); // true
+var_dump(0 || ''); // false
+
+var_dump(!false); // true
+var_dump(!0); // true
+var_dump(!1); // false
+
+var_dump(2 xor 3); // false
+var_dump(0 xor 3); // true
+
+Wszystkich wyrazn mozemy uzywac w dowolnej ilosci i kombinacji 
+
+*/
+
+if ($age > 20 && $myWallet >300 && ($localization ='Kielce' || $localization = 'Kraków')) {
+    echo 'Wszystko sie zgadza';
+}else {
+    echo 'Cos poszło nie tak';
 }
