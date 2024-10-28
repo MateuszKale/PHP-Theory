@@ -443,11 +443,60 @@ Kiedy otrzymamy false podczas rzutowania ?
 [] - pusta tablica
  null
 
-*/
-
 
 $number = 6;
 
 if ($number >= 4) {
     echo "Liczba $number jest wieksza od 4";
+}
+
+*/
+
+/*
+
+*****************Instrukcja warunkowa if else ************
+Nastepna instrukcja warunkowa jest else , jest on wykonywany gdy nasza instrukcja if nie spelni warunku / przyjmie wartosc false 
+ np 
+$age = 15;
+
+if ($age >= 17) {  /// jest warunek przyjmie wartosc true wykonujemy ta linie kodu  
+    echo 'Mozesz kupic bilet !';
+} else {            /// jesli warunek przy if bedzie mial wartosc false wykonujemy tą linie
+    echo 'Jesteś za mlody na ten seans , wybierz film z twojej kategorii wiekowej';
+}
+
+*/
+
+/*
+
+*****************Instrukcja warunkowa elseif ************
+Mozemy zagniezdzac kolejne ify jesli pierwszy przyjal wartosc false , np
+
+$age = 15;
+
+if ($age >= 17){
+    echo 'Mozesz obejrzeć film';
+} else {
+    if ($age >= 13){
+        echo 'Moze jestes zainteresowany innym filmem ?';
+    } else {
+        echo 'Jestes za mlody na obejrzenie tego filmu ';
+    }
+}
+
+ale mozemy tez uzyc instrukcji elseif np 
+
+*/
+
+
+$age = 7;
+
+if ($age >= 17){
+    // KOD SIE WYKONA JESLI TO WYRAZENIE PRZYJMIE WARTOSC TRUE
+    echo 'Mozesz obejrzec film';
+}elseif($age >= 14){
+    // To wyraznie sie wykona jesli powyzszy if przyjmie wartosc false a to przyjmie wartosc true
+    echo 'Proponuje obejrzec inny film';
+}else{ // Wykona sie jesli powyzsze wyrazenia przyjma wartosc false
+    echo'Jestes za mlody na filmy ktore wyswietlamy w obecnej chwili';
 }
