@@ -621,16 +621,16 @@ switch($value) {
     case'foo';
         echo 'Value ma wartość foo';
         break;
-    case'foo';
-        echo 'Value ma wartość foo';
+    case'bar';
+        echo 'Value ma wartość bar';
         break;
-    case'foo';
-        echo 'Value ma wartość foo';
+    case'xxx';
+        echo 'Value ma wartość xxx';
         break;
-    case'foo';
-        echo 'Value ma wartość foo';
+    case'sss';
+        echo 'Value ma wartość sss';
         break;
     default:
-        echo 'Value ma inna wartość'
+        echo 'Value ma inna wartość';
         break;
 }
