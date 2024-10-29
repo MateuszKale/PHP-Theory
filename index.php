@@ -610,3 +610,27 @@ if ($age > 20 && $myWallet >300 && ($localization == 'Kielce' || $localization =
 
 */
 
+
+/*
+**********Switch Case***********
+*/
+
+
+$value = 'bar';
+switch($value) {
+    case'foo';
+        echo 'Value ma wartość foo';
+        break;
+    case'foo';
+        echo 'Value ma wartość foo';
+        break;
+    case'foo';
+        echo 'Value ma wartość foo';
+        break;
+    case'foo';
+        echo 'Value ma wartość foo';
+        break;
+    default:
+        echo 'Value ma inna wartość'
+        break;
+}
