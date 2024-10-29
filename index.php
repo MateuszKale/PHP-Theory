@@ -612,7 +612,33 @@ if ($age > 20 && $myWallet >300 && ($localization == 'Kielce' || $localization =
 
 
 /*
-**********Switch Case***********
+**********Switch***********
+Mozna uzyc tego zamiast elsif'ow
+Konstrukcja switch
+
+$value = 'bar';
+switch($value) {
+    case'foo';
+        //blok kodu gdy wartosc wynosi 'foo';
+        echo 'Value ma wartość foo';
+        break;
+    case'bar';
+        //blok kodu gdy wartosc wynosi 'bar';
+        echo 'Value ma wartość bar';
+        break;
+    case'xxx';
+        //blok kodu gdy wartosc wynosi 'xx';
+        echo 'Value ma wartość xxx';
+        break;
+    case'sss';
+        //blok kodu gdy wartosc wynosi 'sss';
+        echo 'Value ma wartość sss';
+        break;
+    default:
+        //blok kodu gdy wartosc nie pasuje do powyzszych
+        echo 'Value ma inna wartość';
+        break;
+}
 */
 
 
