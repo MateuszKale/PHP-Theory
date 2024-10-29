@@ -616,6 +616,19 @@ if ($age > 20 && $myWallet >300 && ($localization == 'Kielce' || $localization =
 Mozna uzyc tego zamiast elsif'ow,jest uzyteczna gdy za bardzo nam sie rozrasta kontrukcja za pomoca if elif else
 Konstrukcja switch
 
+
+
+switch ($zmienna) {
+    case 'wartość1':
+        // kod do wykonania, gdy $zmienna jest równa 'wartość1'
+        break;
+    case 'wartość2':
+        // kod do wykonania, gdy $zmienna jest równa 'wartość2'
+        break;
+    default:
+        // kod do wykonania, gdy żadna z wartości nie pasuje
+        
+
 $value = 'bar';
 switch($value) {
     case'foo';
