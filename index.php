@@ -613,7 +613,7 @@ if ($age > 20 && $myWallet >300 && ($localization == 'Kielce' || $localization =
 
 /*
 **********Switch***********
-Mozna uzyc tego zamiast elsif'ow
+Mozna uzyc tego zamiast elsif'ow,jest uzyteczna gdy za bardzo nam sie rozrasta kontrukcja za pomoca if elif else
 Konstrukcja switch
 
 $value = 'bar';
@@ -639,24 +639,34 @@ switch($value) {
         echo 'Value ma inna wartość';
         break;
 }
+
+mozzemy tez inaczej skosntruowac case tak zeby przypisywal nam odpowiednia wartosc do zmiennej
+
+$city = 'Warszawa';
+
+switch($city){
+    case 'Berlin';
+    case 'Hamburg';
+        $country = 'Niemcy';
+        break;
+    case 'Kraków';
+    case 'Katowice';
+    case 'Warszawa';
+        $country = 'Polska';
+        break;
+    case 'Moskwa';
+        $country = 'Rosja';
+        break;
+    default;
+        $country = 'Nie rozpoznano';
+        break;
+}
+echo $country;
+
+
+Wazne jest zeby uzywac break;
+Poniewaz nasz switch bedzie wyswietlal nie tylko wartosc która jest przypisana ale tez inne, break od razu przerywa nasz switch i nie tylko 
+jak pojawi sie odpowiednia wartosc
 */
 
 
-$value = 'bar';
-switch($value) {
-    case'foo';
-        echo 'Value ma wartość foo';
-        break;
-    case'bar';
-        echo 'Value ma wartość bar';
-        break;
-    case'xxx';
-        echo 'Value ma wartość xxx';
-        break;
-    case'sss';
-        echo 'Value ma wartość sss';
-        break;
-    default:
-        echo 'Value ma inna wartość';
-        break;
-}
