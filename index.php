@@ -683,3 +683,82 @@ jak pojawi sie odpowiednia wartosc
 */
 
 
+/*
+
+*******************Pętle for,foreach ,while ,do while ****************************
+
+Pętle wykorzystujemy do wielokrotnego wykonania zdefiniowanych przez nas funkcji
+W php mamy 4 petle
+- for
+- foreach
+-while
+-do while
+
+ **********Pętla for****************
+ Składnia petli for
+ for (inicjalizacja ; warunekDoSprawdzenia ; aktualizacja ){
+        kod do wykonania
+ } 
+
+ wykonanie petli for na przykladzie
+
+var_dump('Zaraz wykonamy pętle');
+
+rzeczywisty przyklad wykorzystania petli for 
+
+for ($i=0; $i < 5; $i++) {
+    var_dump($i);
+}
+var_dump('Koniec pętli');
+
+na podstawie tego przykladu mozemy opisac nastepujace elementy skladni petli
+inicjalizacja - $i=0 // zapamietac ze inicjalizacja jest wykonywana tylko raz
+warunekDoSprawdzenia - $i < 5 // jesli warunek przyjmie wartosc true zostanie wyoknany kod
+aktualizacja - $i++
+
+Jeden obrot pętli nazywamy iteracją 
+
+Podczas korzystania z petli mozemy sie tez posluzyc zmiennymi
+
+$starFoo = 45;
+$endFoo = 100;
+
+for ($foo = $starFoo; $foo < $endFoo;$foo += 10) {
+    var_dump($foo);
+}
+
+Mozemy tez pominacz czesc aktualizacyjna jednak wewnatrz petliu musimy zadbac o to aby zmienna sterujaca byla modyfikowana ,
+w innym wypadku stworzymy petle nieskonczona 
+
+for ($i = 0; $i < 5; ){
+    echo "$i \n";
+    ++$i;
+}
+
+Jak juz stworzymy przypadkowo petle nieskonczona mozemy przerwac dzialanie skryptu za pomcoac ctrl + c
+
+uzycie petli for na tablicy filmow
+
+$cinemaMovies = [
+    'Joker',
+    '1917',
+    'Jumanji',
+    'Deadpool'
+];
+$moviesCount = count($cinemaMovies);
+for ($index = 0; $index < $moviesCount; $index++) {
+    echo $cinemaMovies[$index] . "\n";
+}
+
+*/
+
+$cinemaMovies = [
+    'Joker',
+    '1917',
+    'Jumanji',
+    'Deadpool'
+];
+
+for ($index = 0; $index < count($cinemaMovies); $index++) {
+    echo $cinemaMovies[$index] . "\n";
+}
