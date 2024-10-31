@@ -752,6 +752,18 @@ for ($index = 0; $index < $moviesCount; $index++) {
 
 */
 
+/*
+****************Pętle while i do while ******************
+kontrukcja petli while
+
+while (warunekDoSprawdzenia) {
+    // kod do wykonania
+    }
+
+W petli while sami musimy zadbac aby zainicjowac zmienne na poczatku oraz zeby je aktualizowała zeby miala mozliwosc zakonczenia
+
+Przyklad uzycia petli while na podobnym przykladzei jak przy petli for  
+
 $cinemaMovies = [
     'Joker',
     '1917',
@@ -759,6 +771,38 @@ $cinemaMovies = [
     'Deadpool'
 ];
 
-for ($index = 0; $index < count($cinemaMovies); $index++) {
+$index = 0;
+$moviesCount = count($cinemaMovies);
+
+while ($index < $moviesCount){
     echo $cinemaMovies[$index] . "\n";
+    $index++;
 }
+
+Konstrukcja pętli do while
+
+do {
+    //kod do wykonania
+} while (warunek)
+
+Jak widac w konstrukcji przy petli do while wykona sie  zawsze przynajmniej jedna iteracja naszej petli 
+$cinemaMovies = [
+    'Joker',
+    '1917',
+    'Jumanji',
+    'Deadpool'
+];
+
+$i = 0;
+$moviesCount = count($cinemaMovies);
+
+do {
+    echo "Film ". $cinemaMovies[$i] . "\n";
+    $i++;
+} while ($i <$moviesCount);
+
+Zapamietac 
+petla while pierw sprawdza warunek dpiero iteruje
+petla do while pierw iteruje (gwarantuje przynajmniej 1 raz) pozniej dopiero sprawdza warunek
+*/
+
