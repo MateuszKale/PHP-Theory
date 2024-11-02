@@ -822,6 +822,27 @@ foreach ($testArray as $elem){
     echo "$elem \n";
 }
 
+$cinemaMovies = [
+    'Joker',
+    '1917',
+    'Jumanji',
+    'Deadpool'
+];
+
+foreach ($cinemaMovies as $movie){
+    echo $movie . "\n";
+}
+wyswietlenie filmow wraz z indexami
+$cinemaMovies = [
+    'Joker',
+    '1917',
+    'Jumanji',
+    'Deadpool'
+];
+
+foreach ($cinemaMovies as $index => $movie){
+    echo $index. ": " .$movie . "\n";
+}
 
 */
 
@@ -834,6 +855,6 @@ $cinemaMovies = [
     'Deadpool'
 ];
 
-foreach ($cinemaMovies as $movie){
-    echo $movie . "\n";
+foreach ($cinemaMovies as $index => $movie){
+    echo $index. ": " .$movie . "\n";
 }
