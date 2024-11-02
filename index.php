@@ -806,3 +806,34 @@ petla while pierw sprawdza warunek dpiero iteruje
 petla do while pierw iteruje (gwarantuje przynajmniej 1 raz) pozniej dopiero sprawdza warunek
 */
 
+
+/*
+***************Pętla foreach*************
+Konstrukcja pętli foreach
+
+foreach ($array as $arrayElement) {
+        //Kod do wykonania
+}
+ uzycie petli foreach na przykladzie tablicy    
+
+$testArray = ['Jeden','Dwa','Trzy','Cztery','Pięc'];
+
+foreach ($testArray as $elem){
+    echo "$elem \n";
+}
+
+
+*/
+
+
+
+$cinemaMovies = [
+    'Joker',
+    '1917',
+    'Jumanji',
+    'Deadpool'
+];
+
+foreach ($cinemaMovies as $movie){
+    echo $movie . "\n";
+}
