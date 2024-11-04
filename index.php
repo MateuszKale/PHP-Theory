@@ -886,7 +886,24 @@ foreach ($movieDetails as $role => $element){
         echo "$role: $element \n";
     }   
 }
-    
+Stwórz tablicę asocjacyjną z nazwami produktów i ich cenami. Następnie użyj pętli foreach, aby:
+
+$products = [
+    "Chleb" => 4.50,
+    "Mleko" => 3.20,
+    "Ser" => 8.00,
+    "Jajka" => 5.00
+];
+
+$total = 0 ;
+
+foreach ($products as $product => $price){
+    echo "Produkt : $product ,Cena : $price \n";
+    $total += $price;
+}
+
+echo "$total";
+
 */
 
 $movieDetails = [
@@ -904,10 +921,10 @@ $movieDetails = [
 
 foreach ($movieDetails as $role => $element){
     if (is_array($element)){
-        foreach($element as $insideKey => $insideValue){
+        foreach ($element as $insideKey => $insideValue){
             echo "$role: $insideKey : $insideValue \n";
         }
-    }else {
-        echo "$role: $element \n";
-    }   
+    }else{
+        echo "$role : $element \n";
+    }
 }
