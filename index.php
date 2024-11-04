@@ -816,20 +816,20 @@ Pętla sie automatycznie zakonczy gdy przejdziemy po wszystkich elementach tabli
 Nie musimy stawiac zadnych warunkow , wszystko dzieje sie automatycznie
 
 Mozna jej tez uzywac z obiektami
-
+******************************************************************************
 Konstrukcja pętli foreach
 
 foreach ($array as $arrayElement) {
         //Kod do wykonania
 }
  uzycie petli foreach na przykladzie tablicy    
-
+******************************************************************************
 $testArray = ['Jeden','Dwa','Trzy','Cztery','Pięc'];
 
 foreach ($testArray as $elem){
     echo "$elem \n";
 }
-
+******************************************************************************
 lub 
 
 foreach($array as $key=> $arrayElement) {
@@ -850,7 +850,7 @@ foreach ($cinemaMovies as $movie){
     echo $movie . "\n";
 }
 wyswietlenie filmow wraz z indexami
-
+******************************************************************************
 $cinemaMovies = [
     'Joker',
     '1917',
@@ -861,7 +861,7 @@ $cinemaMovies = [
 foreach ($cinemaMovies as $index => $movie){
     echo $index. ": " .$movie . "\n";
 }
-
+******************************************************************************
 bardziej skomplikowany przyklad
 
 $movieDetails = [
@@ -886,6 +886,7 @@ foreach ($movieDetails as $role => $element){
         echo "$role: $element \n";
     }   
 }
+    ******************************************************************************
 Stwórz tablicę asocjacyjną z nazwami produktów i ich cenami. Następnie użyj pętli foreach, aby:
 
 $products = [
@@ -903,28 +904,6 @@ foreach ($products as $product => $price){
 }
 
 echo "$total";
-
+******************************************************************************
 */
 
-$movieDetails = [
-    'title' => 'Joker',
-    'director' => 'Todd Phillips',
-    'writers' => 'Todd Phillips , Scott Silver',
-    'cast' => [
-        'Juaquin Phoenix' => 'Arthur Fleck',
-        'Rober De Niro' => 'Murray Franklin',
-        'Zazie Beetz' => 'Sophie Dumond',
-        'Frances Conroy' => ' Penny Fleck'
-    ],
-    'music' => 'Hildur Guonadottir'
-];
-
-foreach ($movieDetails as $role => $element){
-    if (is_array($element)){
-        foreach ($element as $insideKey => $insideValue){
-            echo "$role: $insideKey : $insideValue \n";
-        }
-    }else{
-        echo "$role : $element \n";
-    }
-}
