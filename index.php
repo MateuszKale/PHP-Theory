@@ -907,3 +907,59 @@ echo "$total";
 ******************************************************************************
 */
 
+/*
+
+**********************Break i continue *****************************
+Instrukcja break
+przerywa dzialanie petli
+
+$wallet = 1000;
+$cart = [
+    ['item' => 'myszka', 'price' => 100],
+    ['item' => 'papier do drukarki', 'price' => 10],
+    ['item' => 'klawiatura', 'price' => 200],
+    ['item' => 'laptop', 'price' => 5000],
+    ['item' => 'DOOM', 'price' => 159],
+];
+
+
+$cartValue = 0;
+foreach($cart as $item){
+    $cartValue += $item['price'];
+    echo $item['item'] ."\n";
+    if ($cartValue > $wallet){
+        echo 'Przekroczyles kwote która dysponujesz';
+        break;
+    }
+}
+
+Instrukcja continue
+przerywa dzialanie danej iteracji i powoduje automatyczne przejscie do kolejnej 
+pod warunkiem ze wyrazenie ktore jest sprawdzane bedzie prawdziwe
+
+$wallet = 1000;
+$cart = [
+    ['item' => 'myszka', 'price' => 100],
+    ['item' => 'papier do drukarki', 'price' => 10],
+    ['item' => 'klawiatura', 'price' => 200],
+    ['item' => 'laptop', 'price' => 5000],
+    ['item' => 'DOOM', 'price' => 159],
+];
+
+
+$cartValue = 0;
+foreach($cart as $item){
+    if ($item['price'] >= 1000){
+        echo "Produkt : {$item['item']} kosztuje za duzo, odłoż go na półke \n";
+        continue;
+    }
+    $cartValue += $item['price'];
+}
+echo "Wartość twoich zakupow wynosi $cartValue \n";
+
+Jesli chcemy sie odniesc do jakies wartosci naszego elementu np $item['price']
+to przy echo wyswietli sie nam blad prasowania , musimy uzyć {$item['price']} zeby wyswietlilo nam wartosc 
+
+
+*/
+
