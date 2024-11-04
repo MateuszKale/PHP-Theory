@@ -809,6 +809,14 @@ petla do while pierw iteruje (gwarantuje przynajmniej 1 raz) pozniej dopiero spr
 
 /*
 ***************Pętla foreach*************
+Dziala na nieco innej zasadzie jak pozostale petle , 
+Uyzwamy jej aby w latwy sposob przejsc przez tablice
+Dzieki czemu mozemy sie dostac w prosty sposob do elementow na ktorych pracujemy
+Pętla sie automatycznie zakonczy gdy przejdziemy po wszystkich elementach tablicy
+Nie musimy stawiac zadnych warunkow , wszystko dzieje sie automatycznie
+
+Mozna jej tez uzywac z obiektami
+
 Konstrukcja pętli foreach
 
 foreach ($array as $arrayElement) {
@@ -822,6 +830,15 @@ foreach ($testArray as $elem){
     echo "$elem \n";
 }
 
+lub 
+
+foreach($array as $key=> $arrayElement) {
+        kod
+}
+
+$array - jest tablica na ktorej chcemy pracowac i przejsc po jej elementach
+$arrayElement - jest to zmienna do ktorej zostanie przypisany kolejny element tablicy 
+
 $cinemaMovies = [
     'Joker',
     '1917',
@@ -833,6 +850,7 @@ foreach ($cinemaMovies as $movie){
     echo $movie . "\n";
 }
 wyswietlenie filmow wraz z indexami
+
 $cinemaMovies = [
     'Joker',
     '1917',
@@ -844,17 +862,52 @@ foreach ($cinemaMovies as $index => $movie){
     echo $index. ": " .$movie . "\n";
 }
 
-*/
+bardziej skomplikowany przyklad
 
-
-
-$cinemaMovies = [
-    'Joker',
-    '1917',
-    'Jumanji',
-    'Deadpool'
+$movieDetails = [
+    'title' => 'Joker',
+    'director' => 'Todd Phillips',
+    'writers' => 'Todd Phillips , Scott Silver',
+    'cast' => [
+        'Juaquin Phoenix' => 'Arthur Fleck',
+        'Rober De Niro' => 'Murray Franklin',
+        'Zazie Beetz' => 'Sophie Dumond',
+        'Frances Conroy' => ' Penny Fleck'
+    ],
+    'music' => 'Hildur Guonadottir'
 ];
 
-foreach ($cinemaMovies as $index => $movie){
-    echo $index. ": " .$movie . "\n";
+foreach ($movieDetails as $role => $element){
+    if (is_array($element)){
+        foreach($element as $insideKey => $insideValue){
+            echo "$role: $insideKey : $insideValue \n";
+        }
+    }else {
+        echo "$role: $element \n";
+    }   
+}
+    
+*/
+
+$movieDetails = [
+    'title' => 'Joker',
+    'director' => 'Todd Phillips',
+    'writers' => 'Todd Phillips , Scott Silver',
+    'cast' => [
+        'Juaquin Phoenix' => 'Arthur Fleck',
+        'Rober De Niro' => 'Murray Franklin',
+        'Zazie Beetz' => 'Sophie Dumond',
+        'Frances Conroy' => ' Penny Fleck'
+    ],
+    'music' => 'Hildur Guonadottir'
+];
+
+foreach ($movieDetails as $role => $element){
+    if (is_array($element)){
+        foreach($element as $insideKey => $insideValue){
+            echo "$role: $insideKey : $insideValue \n";
+        }
+    }else {
+        echo "$role: $element \n";
+    }   
 }
