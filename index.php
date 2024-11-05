@@ -963,3 +963,64 @@ to przy echo wyswietli sie nam blad prasowania , musimy uzyć {$item['price']} z
 
 */
 
+/*
+*********************Funkcje*******************
+Umozliwiaja nam na stworzenie wlasnego kodu i go nazwanie
+za pomoca tej nazwy bedziemy sie mogli do niej pozniej odwolac i wywolac kod
+ktory zostal wczesniej stworzony
+
+Ogromna ilosc funkcji jest wbudowanych w jezyk php , wszystko mozna znalezc na stronie php.net
+
+Budowa funkcji (wlasnej)
+function nazwaFunkcji(argumenty): typWartosciZwracanej
+{
+    ciałoFunkcji
+}
+
+Do zdefiniowania funkcji musimy uzyc slowa kluczowego "function"
+
+nazwafunkcji - jest nazwa ktorą nadajemy dzieki czemu w przyszlosci bedziemy w stanie jej uzyc
+zapamietac ze nazwa funkcji ma opisywac co sama funkcja robi zeby po zobaczeniu nazwy od razu bylo wiadomo do czego ona sluzy
+
+nazwy funkcji nie poprzedzamy znakiem dolara
+
+cialo funkcji - to jest ten kod ktory chcemy 'zamknac'/'umiescic' pod dana funkcja
+argumenty - sa to argument ktore przekazujemy do wnetrza funkcji , argumenty to tak naprawde jakies parametry (zmienne) z poza funkcji
+na podstawie ktorych funkcja cos robi
+
+typwartosci - tutaj okreslamy jakiego typu beda dane,ktore nasza funkcja ma zwrocic po skonczonej pracy
+
+
+warto zaznaczyc ze funkcja nie musi nic zwracac , wtedy poslugujemy sie zapisem z uzyciem slowa 'void'
+przy definicji funkcja ta jest opcjonalna i nie musimy jej pisac jednak zaleca sie robienie tego ze wzgledow na spojnosc i czytelnosc kodu
+
+//uruchomienie  / wywolanie funkcji
+nazwaFunkcji(argumenty);
+
+//uruchomienie i przypisanie zwracanej wartosci
+
+$result = nazwaFunkcji(argumenty);
+*************************************************
+function add($a,$b): int
+{
+    return $a + $b;
+}
+
+echo add(2,3);
+
+
+*************************************************
+function sayHello($name)
+{
+    echo "Hello $name \n";
+}
+
+sayHello('Mateusz');
+
+*/
+function add($a,$b): int
+{
+    return $a + $b; 
+}
+
+var_dump(add(2,3)) ;
