@@ -985,6 +985,7 @@ zapamietac ze nazwa funkcji ma opisywac co sama funkcja robi zeby po zobaczeniu 
 nazwy funkcji nie poprzedzamy znakiem dolara
 
 cialo funkcji - to jest ten kod ktory chcemy 'zamknac'/'umiescic' pod dana funkcja
+
 argumenty - sa to argument ktore przekazujemy do wnetrza funkcji , argumenty to tak naprawde jakies parametry (zmienne) z poza funkcji
 na podstawie ktorych funkcja cos robi
 
@@ -1017,10 +1018,64 @@ function sayHello($name)
 
 sayHello('Mateusz');
 
-*/
-function add($a,$b): int
+*************************************
+Nie mozemy sie odniesc do zmiennej w naszej funkcji ktora jest poza funkcja np 
+
+$name = 'Mateusz';
+
+function sayHello()
 {
-    return $a + $b; 
+    echo "Hello $name\n"
 }
 
-var_dump(add(2,3)) ;
+sayHello();
+
+wyskoczy wtedy blad , zeby nam odczytalo ta zmienna musimy ja pierw przekazac do naszej funkcji
+
+$name = 'Mateusz';
+
+function sayHello($name)
+{
+    $name = $name . " Kal";
+    echo "Hello $name\n";
+}
+
+sayHello($name);
+
+echo "Poza funkcja $name";
+
+Warto zaznaczyc ze przy uzyciu zmiennej z zewnatrz nie jest ona modyfikowana , wszystko co dzieje sie w funkcji nie oddzialowywuje na zmienne z zewnatrz
+w tym przypadku zmienna $name poza funkcja i zmienna $name wewnatrz funkcji to sa dwie rozne zmienne
+
+*******************
+Nie mozemy wywolywac zmiennych ktore znajduja sie wewnatrz funkcji sa one nie widoczne poza nasza funkcja 
+przyklad  gdzie probujemy wywolac zmienna name ktora znajduje sie w srodku funkcji 
+wyskoczy nam blad(undefined variable) poniewaz funkcja echo nie moze zlokalizowac $name ktory jest wewnatrz funkcji 
+w skrocie to co zostalo zdefiniowane wewnatrz funkcji nie wychodzi poza nia
+
+function sayHello($name)
+{
+    echo "Hello $name \n";
+}
+
+sayHello('Mateusz');
+echo "$name";
+
+
+*/
+
+
+$name = ['Mateusz','Artur'];
+
+function sayHello($name)
+{
+    foreach($name as $i){
+        echo "Hello $i\n";
+    }
+    //$name = $name . " Kal";
+    
+}
+
+sayHello($name);
+
+echo "Poza funkcja $name";
