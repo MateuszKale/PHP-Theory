@@ -1061,9 +1061,8 @@ function sayHello($name)
 sayHello('Mateusz');
 echo "$name";
 
-
-*/
-
+*************************************
+przyklad z uzyciem funkcji i tablicy
 
 $name = ['Mateusz','Artur'];
 
@@ -1078,4 +1077,65 @@ function sayHello($name)
 
 sayHello($name);
 
-echo "Poza funkcja $name";
+*************************** funkcja z uzyciem dwoch argumentow *********************
+
+function sayHello($firstName,$lastName)
+{
+    echo "Hello $firstName $lastName";
+}
+
+sayHello('Mateusz','Kaleta');
+
+
+******************** funkcja z wartosciami domyslnymi ****************
+wartosci domyslne mozemy przypisac od razu do argumentu , co oznacza ze gdy nie podamy parametrow pod podany argument to automatycznie go nam uzupelni jak w ponizszych przykladach
+oczywiscie mozemy zmienic domyslny argument na jakis innych , wystarczy przy wywolaniu wpisac co ma znajdowac sie pod podanym argumentem
+warto zapamietac ze wartosciu domyslne zawsze podajemy je od konca w innym wypadku moze dojsc do bledow np
+
+function test($a ='a' ,$b='b')
+{
+    // do something
+}
+
+test(,'c') nie podalismy pierwszego argumentu mimo iz jest przypisany ale mimo to wyskoczy nam blad bo jezyk php nie jest wstanie zinterpetowac tego
+
+
+function sayHello($firstName,$lastName = 'Kaleta')
+{
+    echo "Hello $firstName $lastName";
+}
+
+sayHello('Mateusz');
+
+
+
+function sayHello($firstName,$language = 'en')
+{
+    if($language === 'en'){
+        echo "Hello $firstName \n";
+    }else if ($language === 'pl'){
+        echo "Witaj $firstName \n";
+    }else{
+        echo "Undefined Language";
+    }
+}
+
+sayHello('Mateusz','pl');
+sayHello('Mateusz');
+
+
+*/
+
+function sayHello($firstName,$language = 'en')
+{
+    if($language === 'en'){
+        echo "Hello $firstName \n";
+    }else if ($language === 'pl'){
+        echo "Witaj $firstName \n";
+    }else{
+        echo "Undefined Language";
+    }
+}
+
+sayHello('Mateusz','pl');
+sayHello('Mateusz');
