@@ -1123,19 +1123,38 @@ function sayHello($firstName,$language = 'en')
 sayHello('Mateusz','pl');
 sayHello('Mateusz');
 
-
-*/
-
-function sayHello($firstName,$language = 'en')
+function testDefault($arg1='foo', $arg2 = 'bar')
 {
-    if($language === 'en'){
-        echo "Hello $firstName \n";
-    }else if ($language === 'pl'){
-        echo "Witaj $firstName \n";
-    }else{
-        echo "Undefined Language";
-    }
+    var_dump($arg1);
+    var_dump($arg2);
 }
 
-sayHello('Mateusz','pl');
-sayHello('Mateusz');
+testDefault('test'); ok
+testDefault('test1'.'test2'); ok
+//testDefault( ,'test2'); blad / nie mozemy tak wywolywac funkcji , domyslne wartosci musza byc na ,koncu puste miejsca przed nimi dadza nam blad 
+
+
+**************************Typowanie w php *************************
+Typowanie statyczne oznacza, że typ zmiennej jest znany i określony przed uruchomieniem programu, np. podczas kompilacji. W przypadku PHP, 
+które od wersji 7 wprowadziło bardziej rygorystyczne opcje, można używać deklaracji typów, aby wymusić zgodność typów. Przykład statycznego typowania w PHP to:
+
+function sum(int $a, int $b): int {
+    return $a + $b;
+}
+
+Typowanie dynamiczne natomiast oznacza, że typ zmiennej jest określany w czasie działania programu na podstawie przypisanej wartości.
+ PHP jest głównie językiem dynamicznie typowanym, co oznacza, że zmienna może przechowywać wartości różnych typów w różnych momentach.
+
+$a = 10;   // $a jest teraz typu int
+$a = "tekst";  // teraz $a jest typu string
+
+*/
+$zaz;
+
+if (rand(0,1)) {
+    $zaz = 'test';
+}else{
+    $zaz = 34;
+}
+
+echo $zaz;
