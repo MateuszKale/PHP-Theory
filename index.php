@@ -1142,19 +1142,28 @@ function sum(int $a, int $b): int {
     return $a + $b;
 }
 
+jak widac w powyzszym przykladzie od razu zadeklarowalismy przy naszych argumentach jakiego typu danych maja byc i co ma zwracac
+
 Typowanie dynamiczne natomiast oznacza, że typ zmiennej jest określany w czasie działania programu na podstawie przypisanej wartości.
  PHP jest głównie językiem dynamicznie typowanym, co oznacza, że zmienna może przechowywać wartości różnych typów w różnych momentach.
 
 $a = 10;   // $a jest teraz typu int
 $a = "tekst";  // teraz $a jest typu string
 
-*/
+jak widac w powyszym przykladzie , mamy zmienna ktorej nie deklarujemy czym ma byc i nasz jezyk php sam zwraca wartosc w zaleznosci co dana zmienna przechowuje
 $zaz;
 
 if (rand(0,1)) {
     $zaz = 'test';
 }else{
     $zaz = 34;
-}
 
-echo $zaz;
+
+funkcja rand - losuje nam jakas liczbe z podanego przez nas zakresu 
+
+
+*/
+
+int: $foo = 'test';
+
+var_dump($foo);
