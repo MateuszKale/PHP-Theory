@@ -1,5 +1,6 @@
 <?php
 
+
 //Żeby zadeklarowac zmienną musimy uzyć znaku $
 
 
@@ -1161,9 +1162,78 @@ if (rand(0,1)) {
 
 funkcja rand - losuje nam jakas liczbe z podanego przez nas zakresu 
 
+typy danych ktore mamy w php (powtorzenie)
 
+ integer - liczba całkowita
+ float - liczba rzeczywista/zmiennoprzecinkowa
+ string - łańcuch znaków
+ boolean - prawda lub fałsz true/false
+ array - tablice
+ object - obiekt
+ null - wartość niezdefiniowana, pojawia się wtedy gdy zmiennej nie przypiszemy żadnej wartości
+ resource - uchwyt do zasobu zewnętrznego 
+
+ zalety uzywania typowania statycznego :
+ - bardziej panujemy nad tym co się dzieje w naszej aplikacji
+ - typowanie statyczne przyczynia się do polepszenia wydajności samej aplikacji
+ - dzięki typowaniu statycznego łatwiej poznajemy jak działa nasza aplikacja
+
+ okreslenie typu uzyskujemy poprzez dodanie nazwy typu przed nazwa np 
+
+ function sayHello(string $name){
+    var_dump($name);
+    echo "Hello $name\n";
+}
+
+sayHello('Mateusz');
+
+************************************
+przyklad z liczba gdzie jezyk sam nam przekonwertuje w string
+
+function sayHello(string $name){
+    var_dump($name);
+    echo "Hello $name\n";
+}
+
+$intValue = 100;
+var_dump($intValue);
+sayHello($intValue);
+
+*****************Tryb coercive i strict *******************
+-coercive - tryb domyslny , dopuszcajacy rzutowanie
+- strict- scisly , ktory nie dopuszcza rzutowania
+
+w trybie domyslnym (coercive) w ktorym przed chwila uruchamialiesmy powyzsza funkcje sayhello okreslenie typu jest tylko wskazowka
+dla php mowiaca na jaki typ musi zmienic wartosc przekazana do funkcji
+
+Aby wlaczyc tryb scisly(strict) nalezy na poczatku pliku dodac linię
+declare(strict_type=1);
+tryb scisly obowiazuje tylko dla pliku w ktorym zostal wlaczony
+jesli chcemy go uzywac w calym projekcie to musimy deklarowac to w kazdym pliku
+
+//declare(strict_types=1);
+
+function sayHello(string $name){
+    var_dump($name);
+    echo "Hello $name\n";
+}
+
+sayHello('Tom'); zadziala
+
+$intValue = 100;
+var_dump($intValue);
+sayHello($intValue); blad
 */
 
-int: $foo = 'test';
+//declare(strict_types=1);
 
-var_dump($foo);
+function sayHello(string $name){
+    var_dump($name);
+    echo "Hello $name\n";
+}
+
+sayHello('Tom');
+
+$intValue = 100;
+var_dump($intValue);
+sayHello($intValue);
