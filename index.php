@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 //Żeby zadeklarowac zmienną musimy uzyć znaku $
 
@@ -1333,4 +1334,55 @@ if (countLetter('bar') > 10){
 
 */
 
+/*
+typowanie zwracanej wartosci zapis
 
+ Zaraz za listą argumentów po znaku "dwukropka" wpisujemy typ wartości którą funkcja będzie zwracać.
+ 
+ Podobnie jak z argumentami dobrą praktyką jest określanie zwracanego typu.
+
+function countLetter(string $word): int  // jak widac po dwukropku zapisalismy co nasza funkcja zwraca tzn jaki typ zwraca
+{                                       // jak nasza funkcja nie bedzie nic zwracac uzywamy slowa void
+    return strlen($word);
+}
+
+
+funkcja ktora nam nic nie zwraca (void)
+
+function sayHello($name):void
+{
+    echo "Hello $name \n";
+}
+
+
+jak widac nie mamy instrukcji return co oznacza ze nasza funkcja nie zwraca nam zadnej wartosci , czyli uzywamy slowa void 
+ew mozemy tez dodac ze moze nam zwrocic wartosc null albo zadnej tak by wygladal zapis takiej funkcji   
+
+function sayHello($name):?void
+{
+    echo "Hello $name \n";
+    return;
+}
+
+*/
+
+
+/*
+
+**************Funkcje anonimowe i callable **************
+Funkcja anonimowa jest to funkcja bez nazwy
+budowa funkcji anonimowej
+
+function (arguments): returnType
+{
+    // function body
+}
+
+*/
+
+$myFunction = function (string $name): void
+{
+    echo "Hello $name\n";
+};
+
+$myFunction('tom');
