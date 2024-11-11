@@ -1224,10 +1224,15 @@ $intValue = 100;
 var_dump($intValue);
 sayHello($intValue); blad
 */
+/*
+****************Wartośc null w argumencie ***********       
+W php nasze argumenty moga przyjmowac wartość null
+Aby to zrobić posłujemy się znakiem zapytania "?"
+
 
 function sayHello(?string $name)
 {
-    if ($name != null){
+    if ($name !== null){
         echo "Hello $name \n";
     }else{
         echo "Hello !!!!";
@@ -1236,3 +1241,96 @@ function sayHello(?string $name)
 
 sayHello('Mat');
 sayHello(null);
+
+*/
+/*
+*************Wartosci zwracane**********
+Kazda funkcja moze ale nie musi zwracac danych tzn
+zwracana wartosc powoduje ze z wnetrza funkcji mozemy cos przekazac na zewnatrz
+osiagamy to przy uzyciu slowa 'return'
+
+
+
+function countLetter(string $word)
+{
+    $count = strlen($word);
+    return $count;
+}
+
+$test = countLetter('bar');
+var_dump($test);
+
+
+lub nieco zwiezlej
+
+function countLetter(string $word)
+{
+    return strlen($word);
+}
+
+$test = countLetter('bar');
+var_dump($test);
+
+
+return przerywa dzialanie funkcji np 
+
+function countLetter(string $word)
+{
+    var_dump('before return'); / wyswietlimy
+    return strlen($word); / zwroci wartosc i w tym momencie przerwie nasza funkcje
+    var_dump('after return'); / nie pojawi sie wogole poniewaz return przerywa / konczy nasza funkcje
+}
+
+$test = countLetter('bar');
+var_dump($test);
+
+
+function countLetter(string $word)
+{
+    return strlen($word);
+}
+// funkcja cos zwraca i mamy tutaj kilka opcji co mozemy z tym zrobic
+// mozemy zignorowac wynik 
+
+countLetter('bar');
+
+// przypisac do zmiennej
+
+$count = countLetter('bar');
+echo $count;
+
+// od razu uzyc
+echo countLetter('bar');
+
+// uzyc w wyrazeniu
+
+if (countLetter('bar') > 10){
+    // do something
+}
+
+function countLetter(string $word)
+{
+    return strlen($word);
+}
+// funkcja cos zwraca i mamy tutaj kilka opcji co mozemy z tym zrobic
+// mozemy zignorowac wynik 
+
+countLetter('bar');
+
+// przypisac do zmiennej
+
+$count = countLetter('bar');
+echo $count;
+
+// od razu uzyc
+echo countLetter('bar');
+
+// uzyc w wyrazeniu
+
+if (countLetter('bar') > 10){
+    // do something
+}
+
+*/
+
+
