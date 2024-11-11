@@ -1225,15 +1225,14 @@ var_dump($intValue);
 sayHello($intValue); blad
 */
 
-//declare(strict_types=1);
-
-function sayHello(string $name){
-    var_dump($name);
-    echo "Hello $name\n";
+function sayHello(?string $name)
+{
+    if ($name != null){
+        echo "Hello $name \n";
+    }else{
+        echo "Hello !!!!";
+    }
 }
 
-sayHello('Tom');
-
-$intValue = 100;
-var_dump($intValue);
-sayHello($intValue);
+sayHello('Mat');
+sayHello(null);
