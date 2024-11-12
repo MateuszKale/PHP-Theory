@@ -1378,7 +1378,7 @@ function (arguments): returnType
     // function body
 }
 
-*/
+funkcje anonimowa mozemy przpisac do zmiennej jako wartosc i wtedy mozemy sie poslugiwac za pomoca tej zmiennej np
 
 $myFunction = function (string $name): void
 {
@@ -1386,3 +1386,33 @@ $myFunction = function (string $name): void
 };
 
 $myFunction('tom');
+
+mozemy przekazac funkcje jako argument do innej funkcji i to nazywamy jako argument typu callable
+
+function mycall(callable $func): void
+{
+    $func();
+}
+
+mycall(function() {
+    echo "cokolwiek \n";
+});
+
+*/
+
+$myFunction = function (string $name): void
+{
+    echo "Hello $name\n";
+};
+
+
+function mycall($name, callable $func): void
+{
+    $func($name);
+}
+
+$myFunction =function($name) {
+    echo "$name \n";
+};
+
+mycall('Mateusz', $myFunction);
