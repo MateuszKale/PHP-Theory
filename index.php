@@ -1398,8 +1398,6 @@ mycall(function() {
     echo "cokolwiek \n";
 });
 
-*/
-
 $myFunction = function (string $name): void
 {
     echo "Hello $name\n";
@@ -1416,3 +1414,50 @@ $myFunction =function($name) {
 };
 
 mycall('Mateusz', $myFunction);
+
+*/
+
+/*
+
+***************Funkcje strzałkowe*******************
+budowa funkcji strzałkowej , jest ona krotsza,sa uzyteczne gdy potrzebujemy wykonac jakas mala operacje
+
+fn($value) => $value * 2;
+
+ta sama funkcja tylko z uzyciem anonimowej funkcji 
+
+fn($value) => $value * 2;
+
+$arrowFunct =function ($value): int{
+    $result = $value * 2;
+    return $result;
+};
+echo $arrowFunct(5);
+
+zastosowanie funkcji strzalkowej
+jako iz to tez jest funkcja anonimowe to mozemy ja przypisac do zmiennej np
+
+$myFunction = fn(int $value): int => $value * 2;
+
+$result = $myFunction(20);
+
+var_dump($result);
+
+*/
+
+$users = [
+    'Anna',
+    'Bartek',
+    'Jacek'
+];
+
+
+
+$hello = array_map(
+    fn($elem)=> "Hello ".$elem,
+    $users
+
+);
+
+
+print_r($hello);
