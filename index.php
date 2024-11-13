@@ -1443,7 +1443,8 @@ $result = $myFunction(20);
 
 var_dump($result);
 
-*/
+
+funkcja strzlkowa z uzyciem tablicy
 
 $users = [
     'Anna',
@@ -1451,6 +1452,9 @@ $users = [
     'Jacek'
 ];
 
+array_map - to funkcja w PHP, która służy do przekształcania elementów tablicy za pomocą funkcji zdefiniowanej przez użytkownika lub wbudowanej. array_map przyjmuje jako argumenty 
+funkcję oraz jedną lub więcej tablic i stosuje tę funkcję do każdego elementu z podanych tablic, zwracając nową tablicę z wynikami.
+jest użyteczne, gdy chcemy zastosować operację na każdym elemencie tablicy
 
 
 $hello = array_map(
@@ -1461,3 +1465,23 @@ $hello = array_map(
 
 
 print_r($hello);
+
+$myFunction = fn($a,$b) => $a * $b;
+
+echo $myFunction(3,4);
+
+$sum = fn($a, $b) => $a + $b;
+echo $sum(2, 3);
+
+array_filter - to funkcja w PHP, która służy do filtrowania elementów tablicy na podstawie warunku zdefiniowanego przez użytkownika. Funkcja ta zwraca nową tablicę zawierającą tylko te elementy, 
+które spełniają określone kryteria. Pozwala to na szybkie odfiltrowanie elementów bez konieczności stosowania pętli
+
+$numbers = [1, 2, 3, 4, 5];
+$evenNumbers = array_filter($numbers, fn($num) => $num % 2 === 0);
+print_r($evenNumbers);
+
+$values = [0, 1, false, 2, '', 3];
+$filtered = array_filter($values);
+print_r($filtered);
+*/
+
