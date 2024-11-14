@@ -1484,4 +1484,89 @@ $values = [0, 1, false, 2, '', 3];
 $filtered = array_filter($values);
 print_r($filtered);
 */
+/*
+********************************OOP(Object oriented programming)*********************************
+ KLASA - to szablon lub blueprint, który definiuje właściwości (zmienne) i metody (funkcje), na podstawie których można tworzyć obiekty. Klasy są podstawowymi elementami programowania obiektowego i 
+ umożliwiają strukturyzację kodu w bardziej zorganizowany sposób, co ułatwia jego zrozumienie i utrzymanie.
+ OBIEKT - to instancja klasy. Obiekt jest tworzony na podstawie klasy i dziedziczy jej właściwości oraz metody. Dzięki temu można
+ pracować z danymi i operacjami zdefiniowanymi w klasie.
+
+ Standardem jest, że nazwa klasy powinna się zaczynać z dużej litery.
+
+Tworzenie klasy i budowa klasy
+
+
+class NazwaKlasy
+{
+    // ciało klasy
+}
+
+
+class Person
+{
+    public $name;
+
+    public function __construct(string $name)
+    {
+
+        $this->name = $name;
+    }
+
+    public function describe()
+    {
+        return "Witaj w naszej klasie $this->name !!!";
+    }
+}
+
+$myPerson = new Person('Mateusz');
+
+echo $myPerson ->describe();
+
+
+class Person
+{
+    public $class;
+    public $specialization;
+
+    public function __construct($class,$specialization)
+    {
+
+        $this->class = $class;
+        $this->specialization = $specialization;
+    }
+
+    public function describe()
+    {
+        return "Stworzona postac to $this->class , specjalizacja $this->specialization \n";
+    }
+}
+
+$myPerson = new Person('Priest','Shadow');
+
+echo $myPerson ->describe();
+
+class Car {
+    public $color;
+    public $brand;
+
+    // Konstruktor
+    public function __construct($color, $brand) {
+        $this->color = $color;
+        $this->brand = $brand;
+    }
+
+    // Metoda klasy
+    public function describe() {
+        return "This car is a $this->color $this->brand.";
+    }
+}
+
+// Tworzenie obiektu klasy Car
+$myCar = new Car("red", "Toyota");
+echo $myCar->describe(); // Wynik: This car is a red Toyota.
+
+*/
+ 
+
+
 
