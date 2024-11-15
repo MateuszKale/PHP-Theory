@@ -1567,6 +1567,55 @@ echo $myCar->describe(); // Wynik: This car is a red Toyota.
 
 */
  
+/*
+******************Właściwosci klasy**************
+class Flat
+{
+    public string $type; /// mozna okresic typ wlascicowsci , wprowadzono to w php 7.4
+}
+
+$myFlat = new Flat();
+var_dump($myFlat);
+
+Aby odwolać sie do wlasciwosciu ubiektu używamy strzałki "->" nazywamy ja pobranie
+
+$myFlatType = $myFlat -> type;
+var_dump($myFlatType);
+
+//mozemy sie tez odwolac bezposrednio do wlasciwosci bez koniecznosci przypisywania jej do zmiennej
+
+var_dump($myFlat->type);
+
+// przypisanie wartosci do wlasciwosci
+
+$myFlat->type = "M4";
+var_dump($myFlat);
 
 
+Jak w poprzednich lekcjach np o funkcjach mozemy przypisac wartosc domyslna
 
+class Flat
+{
+    public $type = 'M';
+}
+*/
+
+class Flat
+{
+    public $type;
+}
+
+$myFlat = new Flat();
+var_dump($myFlat);
+
+$myFlatType = $myFlat -> type;
+var_dump($myFlatType);
+
+//mozemy sie tez odwolac bezposrednio do wlasciwosci bez koniecznosci przypisywania jej do zmiennej
+
+var_dump($myFlat->type);
+
+// przypisanie wartosci do wlasciwosci
+
+$myFlat->type = "M4";
+var_dump($myFlat);
