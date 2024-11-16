@@ -1600,22 +1600,43 @@ class Flat
 }
 */
 
+/* ******************* Metody 
+
+ Klasa może posiadać pewne zachowania, które możemy wywoływać. 
+ Zachowania te nazywamy METODAMI 
+ 
+ METODY można przyrównać do funkcji tylko umieszczonej wewnątrz obiektu.
+ 
 class Flat
 {
-    public $type;
+    public ?string $type = null;
+
+    public function open(): void
+    {
+        echo "Drzwi zostały otwarte \n";
+    }
+
+
+    public function close(): void
+    {
+        echo "Drzwi zostały zamknięte \n";
+    }
+
+
+    public function doSomething(string $command): ?int
+    {
+        if ($command === 'foo'){
+            return null;
+        }
+        return 10 ;
+    }
 }
-
+// wywolanie posczegolnych metod
 $myFlat = new Flat();
-var_dump($myFlat);
+$myFlat -> open();
+$myFlat -> close();
+$tmp = $myFlat -> doSomething('cos'); // przypisanie wyniku metody do zmiennej
+var_dump($tmp); // wywolanie zmiennej z przypisana wartoscia metody
 
-$myFlatType = $myFlat -> type;
-var_dump($myFlatType);
 
-//mozemy sie tez odwolac bezposrednio do wlasciwosci bez koniecznosci przypisywania jej do zmiennej
-
-var_dump($myFlat->type);
-
-// przypisanie wartosci do wlasciwosci
-
-$myFlat->type = "M4";
-var_dump($myFlat);
+*/
