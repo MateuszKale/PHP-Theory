@@ -1640,3 +1640,41 @@ var_dump($tmp); // wywolanie zmiennej z przypisana wartoscia metody
 
 
 */
+/*
+Modyfikatory dostępu
+
+ Istnieją trzy rodzaje modyfikatorów dostępu:
+ - public
+ - private
+ - protected
+
+ Domyślnie, jeśli nie użyjemy żadnego modyfikatora to właściwość/metoda jest automatycznie publiczna.
+ Jednak DOBRĄ PRAKTYKĄ jest zawsze używać modyfikatora dostępu.
+ 
+ PUBLIC - właściwość/metoda jest publiczna i dostęp do niej jest zarówno z wnętrza obiektu jak i z poza jej wnętrze
+ PRIVATE - właściwość/metoda jest prywatna i dostęp do niej jest tylko z wnętrza obiektu
+ PROTECTED - właściwość/metoda jest chroniona i nie ma dostępu do niej z poza obiektu. Wrócimy do tematu jak już poznamy dziedziczenie
+
+
+ 
+// class SomeClass
+// {
+//     public string $foo = 'public';
+//     private string $bar = 'private';
+//     protected string $baz = 'protected';
+
+//     private function privFoo(): void
+//     {
+//         echo "Jestem prywatną metodą \n";
+//     }
+
+//     public function printProperties(): void
+//     {
+//         var_dump($this->foo);
+//         var_dump($this->bar);
+//         var_dump($this->baz);
+
+//         $this->privFoo();
+//     }
+// }
+*/
