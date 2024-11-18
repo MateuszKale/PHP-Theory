@@ -1607,37 +1607,143 @@ class Flat
  
  METODY można przyrównać do funkcji tylko umieszczonej wewnątrz obiektu.
  
-class Flat
+class Flat // klasa
 {
-    public ?string $type = null;
+    public ?string $type = Null;
 
-    public function open(): void
+    public function open():void // metoda
     {
         echo "Drzwi zostały otwarte \n";
     }
 
-
-    public function close(): void
+    public function close():void  // metoda
     {
         echo "Drzwi zostały zamknięte \n";
     }
 
-
-    public function doSomething(string $command): ?int
+    public function foo(string $command): void  // metoda
     {
         if ($command === 'foo'){
-            return null;
+            echo 'Typ posiada wartość foo';
+        }else{
+            echo 'Typ posiada inną wartość ';
         }
-        return 10 ;
+    }
+    
+}
+
+$myFlat = new Flat(); // tworzenie obiektu 
+
+$myFlat->open();  // wywolanie metody
+
+$myFlat ->close(); // wywolanie metody
+
+$myFlat->foo('fo'); // wywolanie metody
+
+
+*/
+
+/*
+
+**********************$This******************************
+$this jest podstawowym mechanizmem w programowaniu obiektowym w PHP, pozwalającym na:
+
+Odwoływanie się do właściwości i metod bieżącego obiektu.
+Budowanie bardziej dynamicznych i elastycznych klas.
+Implementację wzorców, takich jak fluent interface.
+
+$this jest wskaźnikiem na bieżącą instancję klasy.
+Pozwala na dostęp do właściwości i metod tej instancji.
+Nie może być używane w kontekście statycznym.
+
+Dostep do wlasciwosci
+
+class User {
+    public $username;
+
+    public function setUsername($username) {
+        $this->username = $username; // Odwołanie się do właściwości obiektu
+    }
+
+    public function getUsername() {
+        return $this->username; // Zwracanie wartości właściwości
     }
 }
-// wywolanie posczegolnych metod
-$myFlat = new Flat();
-$myFlat -> open();
-$myFlat -> close();
-$tmp = $myFlat -> doSomething('cos'); // przypisanie wyniku metody do zmiennej
-var_dump($tmp); // wywolanie zmiennej z przypisana wartoscia metody
 
+$user = new User();
+$user->setUsername("JohnDoe");
+echo $user->getUsername(); // Wydrukuje "JohnDoe"
+
+
+Wywolanie metod
+
+class Calculator {
+    private $result = 0;
+
+    public function add($value) {
+        $this->result += $value;
+        return $this; // Możliwość łańcuchowego wywołania metod
+    }
+
+    public function subtract($value) {
+        $this->result -= $value;
+        return $this;
+    }
+
+    public function getResult() {
+        return $this->result;
+    }
+}
+
+$calc = new Calculator();
+echo $calc->add(10)->subtract(3)->getResult(); // Wydrukuje 7
+
+
+uzycie this w konstruktorze
+
+class Product {
+    private $name;
+
+    public function __construct($name) {
+        $this->name = $name; // Ustawienie właściwości za pomocą $this
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+}
+
+$product = new Product("Laptop");
+echo $product->getName(); // Wydrukuje "Laptop"
+
+
+class Flat
+{
+
+    public ?string $type = null;
+
+    public function isTypeSet():bool 
+    {   // metoda ktora sprawdza czy nasza metoda jest ustawiona
+        return (bool) $this->type; 
+        // odwolywanie sie do wlasciwosci type rzutujemy ja na typ bool czyli zwroci nam true albo false w zaleznosci co mamy przypisane do $type
+    }
+
+    public function printType():void 
+    { // metoda ktora wywoluje nam jakie mamy mieszkanie
+        if($this -> isTypeSet()){  
+            // sprawdzenie czy jakis typ jest ustawiony (czy przyjmuje wartosc true)
+            echo "Nasze mieszkanie to : ". $this->type . "\n";
+        }else{ 
+            // jesli nie ustawilismy zadnego typu mieszkania zostaje wykonana ta linijka
+            echo "Jeszcze nie wiemy jakiego typu jest nasze mieszkanie \n";
+        }
+    }
+}
+
+$myFlat = new Flat(); // stworzenie obiektu
+$myFlat->printType();
+$myFlat -> type = "M3"; // przypisanie typu mieszkania do obiektu
+$myFlat->printType(); // wywolanie metody
 
 */
 /*
@@ -1657,24 +1763,34 @@ Modyfikatory dostępu
 
 
  
-// class SomeClass
-// {
-//     public string $foo = 'public';
-//     private string $bar = 'private';
-//     protected string $baz = 'protected';
+class SomeClass
+{
+    public string $foo = 'public'; // właściwość/metoda jest publiczna i dostęp do niej jest zarówno z wnętrza obiektu jak i z poza jej wnętrze
+    private string $bar = 'private'; // właściwość/metoda jest prywatna i dostęp do niej jest tylko z wnętrza obiektu
+    protected string $baz = 'protected'; //właściwość/metoda jest chroniona i nie ma dostępu do niej z poza obiektu.
 
-//     private function privFoo(): void
-//     {
-//         echo "Jestem prywatną metodą \n";
-//     }
 
-//     public function printProperties(): void
-//     {
-//         var_dump($this->foo);
-//         var_dump($this->bar);
-//         var_dump($this->baz);
+    private function priv():void // prywatna funkcja dziala tylko wewnatrz obiektu
+    {
+        echo "Prywatna medota";
+    }
+   
+    public function printProperties():void // publiczna jest dostepna na zewnatrz i wewnatrz obiektu
+    {
+        var_dump($this->foo);
+        var_dump($this->bar); // uzycie prywatnej w publicznej funkcji pozwala nam na wyswietlenie
+        var_dump($this->baz);
 
-//         $this->privFoo();
-//     }
-// }
+        $this->priv(); // uzycie prywatnej w publicznej funkcji pozwala nam na wyswietlenie
+    }
+}  
+
+$object = new SomeClass();
+$object -> printProperties();
 */
+
+
+
+
+
+
