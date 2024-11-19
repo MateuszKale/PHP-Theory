@@ -1787,6 +1787,112 @@ class SomeClass
 
 $object = new SomeClass();
 $object -> printProperties();
+
+
+ZAPAMIETAC - Domyslnie najlepiej uzywac modyfikatora private (chyba ze bedziemy potrzebowac dostepu z zewnatrz ale to juz zalezy od logiki naszego programu)
+
+class Flat
+{
+    private string $doorLockCode = '123qwe';
+
+    private bool $closed = true;
+
+    public function close():void
+    {
+        $this->closed = true;
+
+    }
+
+
+    public function open(string $code): void
+    {
+        if ($code === $this->doorLockCode){
+            $this->closed = false;
+            echo "Kod jest poprawny \n";
+        }else{
+            //logowanie informacji o probie uzycia niepoprawnego kodu
+            echo "Kod niepoprawny \n";
+        }
+
+        }
+
+    public function isOpen(): bool
+    {
+        return !$this->closed;
+    }
+}
+
+
+$myFlat =new Flat();
+var_dump($myFlat);
+$myFlat->open('123qwe');
+*/
+
+/*
+Konstruktor nie jest niczym innym jak metodą zdefiniowaną w klasie.
+ Nie musimy jej ręcznie wywoływać.
+ Zostanie wywołany automatycznie gdy tylko będziesz tworzył nowy obiekt.
+
+ Jeśli chodzi o implementację konstruktora to metoda która nim jest ma specjalną nazwę: __construct
+
+
+ class SomeClass 
+{
+    public function __construct()
+    {
+        echo "Hej to ja, konstruktor Twojej klasy. Ja istnieję !!!\n";
+    }
+}
+
+$object = new SomeClass();
+
+
+ Konstruktor służy do wstępnego skonfigurowania nowo powstającego obiektu, 
+ poprzez odpowiednie ustawienie jego właściwości
+
+
+ przyklad uzycia konstruktora
+class Flat
+{
+    private string $doorLockCode;
+
+    private bool $closed = true;
+
+
+    public function __construct(int $doorCode)
+    {
+        if(strlen((string)$doorCode) < 6){
+            echo 'Błąd';
+        }else{
+            $this->doorLockCode =$doorCode ;
+        }
+    }
+
+    public function close():void
+    {
+        $this->closed = true;
+
+    }
+
+
+    public function open(string $code): void
+    {
+        if ($code === $this->doorLockCode){
+            $this->closed = false;
+            echo "Kod jest poprawny \n";
+        }else{
+            //logowanie informacji o probie uzycia niepoprawnego kodu
+            echo "Kod niepoprawny \n";
+        }
+
+        }
+
+    public function isOpen(): bool
+    {
+        return !$this->closed;
+    }
+}
+
 */
 
 
