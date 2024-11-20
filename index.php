@@ -1854,7 +1854,7 @@ $object = new SomeClass();
  przyklad uzycia konstruktora
 class Flat
 {
-    private string $doorLockCode;
+    private int $doorLockCode;
 
     private bool $closed = true;
 
@@ -1893,10 +1893,111 @@ class Flat
     }
 }
 
+$newDoorCode = rand(100000,999999);
+$flat = new Flat($newDoorCode);
+
+var_dump($flat);
+
+Konstruktor jako uzycie wartosci domyslnej
+
+class Product {
+    public $price;
+
+    public function __construct($price = 100) {
+        $this->price = $price;
+    }
+}
+
+$product1 = new Product(); // Użyje wartości domyślnej
+$product2 = new Product(200); // Nadpisze wartość domyślną
+
+echo $product1->price; // 100
+echo $product2->price; // 200
+
+
 */
 
 
+/*
+Zasady tworzenia dobrych klas 
+
+Schemat ktorego powinnismy sie trzymac przy konstrukcji naszej klasy dzieki czemu nasz kod stanie sie czytelniejszy 
+(wszystko jest poukladane na swoim miejscu od razu wiadomo gdzie czego szukac)
+
+class SomeClass()
+    {
+        // Stałe publiczne  
+        // Stałe prywatne 
+
+        // Właściwości statyczne publiczne 
+        // Właściwości statyczne prywatne 
+        // Metody statyczne publiczne 
+        // Metody statycznie prywatne 
+
+        // Właściwości publiczne
+        // Właściwości prywatne
+
+        // Konstruktor
+
+        // Metody publiczne
+        // Metody prywatne
+    }
+*/
+
+/*
+***********************Stałę oraz metody i własciwosci statyczne*********************
+
+ Od wersji 7.1 możemy używać modyfikatorów dostępu w kontekście stałych. // zapamietac w razie gdyby przyszlo pracowac na starszej wersji php
+ Jeśli nie użyjemy żadnego to stała domyślnie jest publiczna.
+ 
+ Przy nazewnictwie stałych obowiązują te same dobre praktyki co przy stałych globalnych.
+ Do stałej musimy przypisać konkretną wartość np. string, tablica, nie mogą to być jednak wyrażenia, 
+ czyli zmienne, właściwości czy rezultat zwrócony przez wywołanie funkcji/metody
+ 
+ Do stałej odwołujemy się przez nazwę klasy oraz użycie podwójnego dwukropka "::"
+ Z wnętrza klasy do prywatnej (nie tylko) stałej odwołujemy się za pomocą słowa "self", które wskazuje na nazwę klasy.
+ Istotny jest fakt, że nie potrzebujemy używać znaku dolara "$" przed nazwą stałej.
+ 
+ Stałe są inicjalizowane tylko raz gdy PHP wczyta kod klasy 
+ a nie za każdym razem gdy tworzymy nowy obiekt danej klasy.
 
 
+class SomeClass
+{
+    const BAR = 'bar'; // publiczna
+    public const FOO = 'foo';
+    private const ZAZ = 'zaz';
 
+    public function doSomething(): void
+    {
+        echo self::ZAZ;
+    }
 
+}
+
+echo SomeClass::FOO . "\n";  // uzycie stałej poza klasa
+//echo SomeClass::ZAZ . "\n";
+
+$object = new SomeClass();
+$object->doSomething();
+ 
+*/
+
+class SomeClass
+{
+    const BAR = 'bar'; // publiczna
+    public const FOO = 'foo';
+    private const ZAZ = 'zaz';
+
+    public function doSomething(): void
+    {
+        echo self::ZAZ;
+    }
+
+}
+
+echo SomeClass::FOO . "\n";
+//echo SomeClass::ZAZ . "\n";
+
+$object = new SomeClass();
+$object->doSomething();
