@@ -1835,6 +1835,13 @@ Konstruktor nie jest niczym innym jak metodą zdefiniowaną w klasie.
 
  Jeśli chodzi o implementację konstruktora to metoda która nim jest ma specjalną nazwę: __construct
 
+ Funkcje i zalety:
+Automatyczne wywołanie: __construct uruchamia się automatycznie przy użyciu słowa kluczowego new podczas tworzenia obiektu.
+
+Elastyczność i czytelność kodu: Pozwala na ustawianie właściwości klasy bez konieczności osobnego wywoływania metod.
+
+Dziedziczenie: W klasach dziedziczących można nadpisywać konstruktor rodzica lub wywoływać go przy użyciu parent::__construct().
+
 
  class SomeClass 
 {
@@ -1914,6 +1921,35 @@ $product2 = new Product(200); // Nadpisze wartość domyślną
 echo $product1->price; // 100
 echo $product2->price; // 200
 
+Wywoływanie metod wewnątrz konstruktor
+
+class Logger {
+    public function __construct() {
+        $this->logMessage();
+    }
+
+    private function logMessage() {
+        echo "Logowanie rozpoczęte\n";
+    }
+}
+
+$logger = new Logger(); // Wyświetli: Logowanie rozpoczęte
+
+uzycie wartosci domyslnych w konstruktorze
+
+class Product {
+    public $price;
+
+    public function __construct($price = 100) {
+        $this->price = $price;
+    }
+}
+
+$product1 = new Product(); // Użyje wartości domyślnej
+$product2 = new Product(200); // Nadpisze wartość domyślną
+
+echo $product1->price; // 100
+echo $product2->price; // 200
 
 */
 
@@ -1975,7 +2011,7 @@ class SomeClass
 
 }
 
-echo SomeClass::FOO . "\n";  // uzycie stałej poza klasa
+echo SomeClass::FOO . "\n";  // uzycie stałej poza klasaa
 //echo SomeClass::ZAZ . "\n";
 
 $object = new SomeClass();
@@ -1983,21 +2019,21 @@ $object->doSomething();
  
 */
 
-class SomeClass
+
+
+class Car
 {
-    const BAR = 'bar'; // publiczna
-    public const FOO = 'foo';
-    private const ZAZ = 'zaz';
+    private $color;
+    private $brand;
 
-    public function doSomething(): void
+    public function __construct($color,$brand)
     {
-        echo self::ZAZ;
+        $this->color = $color;
+        $this->brand = $brand;
+        echo "$this->color , $this->brand ";
     }
-
 }
 
-echo SomeClass::FOO . "\n";
-//echo SomeClass::ZAZ . "\n";
-
-$object = new SomeClass();
-$object->doSomething();
+$newCar =new Car('Blue','Fiat');
+$tmp = $newCar;
+echo $tmp;
