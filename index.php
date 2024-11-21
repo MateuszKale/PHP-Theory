@@ -1997,6 +1997,9 @@ class SomeClass()
  Stałe są inicjalizowane tylko raz gdy PHP wczyta kod klasy 
  a nie za każdym razem gdy tworzymy nowy obiekt danej klasy.
 
+Stałe są powiązane z klasą a nie z obiektem !
+
+
 
 class SomeClass
 {
@@ -2006,34 +2009,43 @@ class SomeClass
 
     public function doSomething(): void
     {
-        echo self::ZAZ;
+        echo self::ZAZ; // wywolanie stałej wewnatrz klasy
     }
 
 }
 
-echo SomeClass::FOO . "\n";  // uzycie stałej poza klasaa
+echo SomeClass::FOO . "\n";  // uzycie stałej poza klasaa // do stałej odwolujemy sie poprzez klase a nie obiekt
 //echo SomeClass::ZAZ . "\n";
 
 $object = new SomeClass();
 $object->doSomething();
+
+
+Słowo kluczowe self odnosi się do bieżącej klasy, w której zostało wywołane. Jest używane w celu dostępu do statycznych metod i stałych w obrębie tej klasy.
+Self -  działa w czasie kompilacji, a nie wykonania, co oznacza, że zawsze odnosi się do klasy, w której zostało zdefiniowane,
+
+Kiedy używać self?
+Gdy chcesz wyraźnie wskazać, że używasz elementów (metod, stałych) z tej samej klasy.
+Gdy nie chcesz, aby elementy zostały nadpisane przez klasy dziedziczące.
+
  
 */
 
 
 
-class Car
-{
-    private $color;
-    private $brand;
 
-    public function __construct($color,$brand)
+
+class SomeClass
+{
+    const BAR = 'bar';
+    public const FOO = 'foo';
+    private const ZAZ = 'zaz';
+
+    public function doSomething()
     {
-        $this->color = $color;
-        $this->brand = $brand;
-        echo "$this->color , $this->brand ";
+        echo self::ZAZ;
     }
+
 }
 
-$newCar =new Car('Blue','Fiat');
-$tmp = $newCar;
-echo $tmp;
+echo SomeClass::FOO ."\n";
