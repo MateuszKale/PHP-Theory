@@ -2032,20 +2032,97 @@ Gdy nie chcesz, aby elementy zostały nadpisane przez klasy dziedziczące.
 */
 
 
+/*
+**********************Właściwośći statyczne **************************
+
+ Tworzymy je za pomocą słowa 'static' dodawanego przed nazwą właściwości/metody.
+ Tutaj również mają zastosowanie modyfikatory widoczności.
+
+ wlasciwosci i metody statyczne wspoldziela sie pomiedzy wszystkie nowe obiekty 
+
+ Dostęp do statycznej właściwości/metody uzyskujemy przez użycie podwójnego dwukropka: "::"
+ Z zewnątrz klasy musimy się nazwą klasy aby uzyskać dostęp do właściwości/metod statycznych.
+ Natomiast z wnętrza klasy posługujemy się słowem "self" które wskazuje na klasę w której się znajduje.
+
+Konwencja nazewnicza obowiązuje taka jak przy nazywaniu zmiennych.
+ Musimy używać znaku dolara "$" przy odwoływaniu się do właściwości/metody statycznej
+
+Z zewnątrz do właściwości statycznych/metod można odwołać się też przy użyciu nazwy obiektu:
+ $object::$staticProperty
+ $object::staticMethod();
+
+W metodach statycznych nie można używać właściwości $this, natomiast w zwykłych metodach jak najbardziej możemy używać "self".
+Self - istnieje zawsze i odwołuje się do klasy, natomist $this istnieje tylko w kontekście obiektu
 
 
+przyklad uzycia statycznej metody , wraz z wywolaniem oraz wynikami 
 
-class SomeClass
+
+class Flat 
 {
-    const BAR = 'bar';
-    public const FOO = 'foo';
-    private const ZAZ = 'zaz';
+    private const BUILT = 5;
 
-    public function doSomething()
+    private static $sold = 0;
+
+    public static function sold():int
     {
-        echo self::ZAZ;
+        return self::$sold;
+    }
+
+
+    public function __construct()
+    {
+        if (self::$sold < self::BUILT){
+            self::$sold += 1;
+        }else{
+            echo "Sprzedano wszystkie mieszkania \n";
+        }
     }
 
 }
 
-echo SomeClass::FOO ."\n";
+$newFlat = new Flat();
+var_dump(Flat::sold()); /1
+$newFlat1 = new Flat();
+new Flat(); /2
+new Flat(); /3 
+new Flat(); /4
+var_dump(Flat::sold()); /5
+new Flat(); /sprzedano wszystkie mieszkania
+new Flat(); /sprzedano wszystkie mieszkania
+*/
+
+class Flat 
+{
+    private const BUILT = 5;
+
+    private static $sold = 0;
+
+    public static function sold():int
+    {
+        return self::$sold;
+    }
+
+
+    public function __construct()
+    {
+        if (self::$sold < self::BUILT){
+            self::$sold += 1;
+        }else{
+            echo "Sprzedano wszystkie mieszkania \n";
+        }
+    }
+
+}
+
+$newFlat = new Flat();
+var_dump(Flat::sold());
+$newFlat1 = new Flat();
+new Flat();
+new Flat();
+new Flat();
+var_dump(Flat::sold());
+new Flat();
+new Flat();
+
+
