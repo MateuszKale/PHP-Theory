@@ -2092,37 +2092,107 @@ new Flat(); /sprzedano wszystkie mieszkania
 new Flat(); /sprzedano wszystkie mieszkania
 */
 
-class Flat 
+/*
+
+*********************Dziedziczenie******************
+
+Dziedzieczenie w php
+istnieje rodzic w php tylko jeden i istnieje dziecko lub dzieci
+dzieci dzieczica wlasciwosci i metody po rodzicu , ale moga rowniez wyksztalcic wlasne wlasciwosci i metody
+
+Dziedziczenie opiera sie na istnieniu klasy bazowej (rodzic)
+ktora moze sie dzilic z klasami potomnymi(dziecmi) swoimi funkcjonalnosciami (wlasciwosci,metody)
+klasa potomna (dziecko) moze dziedziczyc tylko po jednej klasie bazowej
+
+budowa klasy rodzica i dziecka
+
+class Parent
 {
-    private const BUILT = 5;
+ ///
+}
 
-    private static $sold = 0;
+class Child extends Parent
+{
+    ///
+}
 
-    public static function sold():int
-    {
-        return self::$sold;
-    }
+Aby móc zastosować dziedziczenie trzeba użyć słowa "extends".
+ Po lewej stronie "extends" mamy klasę która będzie dzieckiem, 
+ natomiast po prawej wskazujemy klasę, która będzie rodzicem.
 
+ class User
+{
+    public string $login = 'userLogin';
+    private string $topSecret = 'secret';
+}
+
+
+
+class Client extends User
+{
+    public int $number = 111;
 
     public function __construct()
     {
-        if (self::$sold < self::BUILT){
-            self::$sold += 1;
-        }else{
-            echo "Sprzedano wszystkie mieszkania \n";
-        }
+        var_dump($this->login);
+        var_dump($this->number);
+        //var_dump($this->topSecret); // klasa dziedziczaca nie moze dziedziczyc rzeczy ktore maja modyfikator dostepu private
+                                    // w zamian tego mozemy uzyc z private na protected i wtedy bedziemy mogli dziedziczyc
     }
-
 }
 
-$newFlat = new Flat();
-var_dump(Flat::sold());
-$newFlat1 = new Flat();
-new Flat();
-new Flat();
-new Flat();
-var_dump(Flat::sold());
-new Flat();
-new Flat();
+
+class Admin extends User
+{
+    public string $role = 'superuser';
+
+    public function __construct()
+    {
+        var_dump($this->login);
+        var_dump($this->role);
+        //var_dump($this->topSecret); // klasa dziedziczaca nie moze dziedziczyc rzeczy ktore maja modyfikator dostepu private
+    } 
+}
+
+$user = new User();
+$client = new Client();
+$admin = new Admin();
+*/
 
 
+class User
+{
+    public string $login = 'userLogin';
+    protected string $topSecret = 'secret';
+}
+
+
+
+class Client extends User
+{
+    public int $number = 111;
+
+    public function __construct()
+    {
+        var_dump($this->login);
+        var_dump($this->number);
+        var_dump($this->topSecret);
+    }
+}
+
+
+class Admin extends User
+{
+    public string $role = 'superuser';
+
+    public function __construct()
+    {
+        var_dump($this->login);
+        var_dump($this->role);
+        var_dump($this->topSecret);
+    } 
+}
+
+$user = new User();
+$client = new Client();
+$admin = new Admin();
