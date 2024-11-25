@@ -2104,6 +2104,18 @@ Dziedziczenie opiera sie na istnieniu klasy bazowej (rodzic)
 ktora moze sie dzilic z klasami potomnymi(dziecmi) swoimi funkcjonalnosciami (wlasciwosci,metody)
 klasa potomna (dziecko) moze dziedziczyc tylko po jednej klasie bazowej
 
+Kiedy warto używać dziedziczenia
+Kod wielokrotnego użytku: Kiedy różne klasy mają wspólną funkcjonalność, 
+Zachowanie hierarchiczne: Gdy istnieją naturalne relacje pomiędzy obiektami,
+
+
+
+Public i Protected: Tylko właściwości i metody oznaczone jako public lub protected są dziedziczone. Prywatne (private) są niedostępne w klasach potomnych.
+Konstruktor rodzica: Klasa potomna nie automatycznie dziedziczy konstruktora rodzica, ale można go wywołać ręcznie za pomocą parent::__construct().
+Przesłanianie metod: Klasa potomna może nadpisać metodę klasy rodzica, definiując ją ponownie. W takim przypadku można jednak nadal wywołać metodę rodzica za pomocą parent::methodName().
+
+
+
 budowa klasy rodzica i dziecka
 
 class Parent
@@ -2157,6 +2169,43 @@ class Admin extends User
 $user = new User();
 $client = new Client();
 $admin = new Admin();
+
+
+
+
+<?php
+class Employee {
+    protected $name;
+    protected $salary;
+
+    public function __construct($name, $salary) {
+        $this->name = $name;
+        $this->salary = $salary;
+    }
+
+    public function getDetails() {
+        return "Pracownik: $this->name, Wynagrodzenie: $this->salary";
+    }
+}
+
+class Manager extends Employee {
+    private $bonus;
+
+    public function __construct($name, $salary, $bonus) {
+        parent::__construct($name, $salary);
+        $this->bonus = $bonus;
+    }
+
+    public function getDetails() {
+        return parent::getDetails() . ", Bonus: $this->bonus";
+    }
+}
+
+$manager = new Manager("Anna", 5000, 1000);
+echo $manager->getDetails(); 
+// Pracownik: Anna, Wynagrodzenie: 5000, Bonus: 1000
+?>
+
 */
 
 
