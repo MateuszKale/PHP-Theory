@@ -2173,7 +2173,7 @@ $admin = new Admin();
 
 
 
-<?php
+
 class Employee {
     protected $name;
     protected $salary;
@@ -2206,42 +2206,178 @@ echo $manager->getDetails();
 // Pracownik: Anna, Wynagrodzenie: 5000, Bonus: 1000
 ?>
 
-*/
 
 
-class User
+Dziedziczenie możemy sobie zobrazować jak odwrócone drzewo, gdzie na samej górze jest główny korzeń
+ z którego wychodzą kolejne gałęzie reprezentujące tak zwany "poziom dziedziczenia"
+
+  --- rodzic
+ class Vehicle
+ 
+ --- pierwszy poziom
+ class Train extends Vehicle
+ class Plane extends Vehicle
+ class Car extends Vehicle
+ 
+ --- drugi poziom
+ CargoTrain extends Train
+ PassengerTrain extends Train
+ 
+ --- drugi poziom
+ Fighter extends Plane
+ Bomber extends Plane
+ 
+ --- trzeci poziom dziecziczenia
+ StealthFighter extends Fighter
+
+ UWAGA. Dobra praktyką jest jednak nie przesadzanie ze zbyt dużą liczbą poziomów dziedziczenia.
+ Starajmy się zamknąć maksymalnie w trzech poziomach.
+ Oczywiście gdy wyjdzie nam o jeden poziom więcej to świat się nie zawali, ale to będzie już oznaczało
+ że coś trochę przekombinowaliśmy i może warto się głębiej zastanowić nad naszym projektem.
+
+
+
+Konstruktor a dziedziczenie
+
+
+class Rodzic
 {
-    public string $login = 'userLogin';
-    protected string $topSecret = 'secret';
+    protected ?string $nazwa = null;
+
+    public function __construct(string $nazwa)
+    {
+        $this->nazwa = $nazwa;
+    }
+
+    public function pobierzNazwe(): ?string
+    {
+        return $this->nazwa;
+    }
 }
 
+$obiektRodzica = new Rodzic('Testowa nazwa rodzica');
+var_dump($obiektRodzica->pobierzNazwe());
 
 
-class Client extends User
+class Dziecko extends Rodzic
 {
-    public int $number = 111;
 
-    public function __construct()
+ // klasa dziecko jest pusta , odziedziczyla od klasy rodzica konstruktor ,wlasciwosc i jedna publiczna metode
+}
+
+$obiektDziecko = new Dziecko('Testowa nazwa dziecka');
+var_dump($obiektDziecko->pobierzNazwe());
+
+
+
+***********************************************************
+
+
+class Rodzic
+{
+    protected ?string $nazwa = null;
+
+    public function __construct(string $nazwa)
+    {   
+        var_dump('To jest konstruktor rodzica');
+        $this->nazwa = $nazwa;
+    }
+
+    public function pobierzNazwe(): ?string
+    {   
+        var_dump('To jest konstruktor dziecka');
+        return $this->nazwa;
+    }
+}
+
+$obiektRodzica = new Rodzic('Testowa nazwa rodzica');
+var_dump($obiektRodzica->pobierzNazwe());
+
+
+class Dziecko extends Rodzic
+{
+    public function __construct(int $numer, string $tektst)
     {
-        var_dump($this->login);
-        var_dump($this->number);
-        var_dump($this->topSecret);
+        
+    }
+
+}
+
+$obiektDziecko = new Dziecko(1,'Testowa nazwa dziecka');
+var_dump($obiektDziecko->pobierzNazwe()); // zwroci wartosc null
+// odwolujemy sie do metody ktora ma przypisana wartosc null 
+// w dziecku nadpisalismy ten konstruktor
+
+zwroci nam 
+string(27) "To jest konstruktor rodzica"
+string(21) "Testowa nazwa rodzica"      
+string(27) "To jest konstruktor dziecka"
+NULL
+
+Konstruktorem dziecka przyslonilismy konstruktor rodzica 
+
+ Istnieje jednak sposób na wykonanie konstruktora rodzica dzięki zastosowaniu słowa "parent".
+ Dzięki temu słowu jesteśmy w stanie odwołać się do dowolnej metody pochodzącej z rodzica i wywołać ją taką jaka była w rodzicu.
+ W naszym przypadku jest to właśnie konstruktor.
+
+
+ class Dziecko extends Rodzic
+{
+    public function __construct(string $nazwa, int $numer)
+    {
+        parent::__construct($nazwa);
+    }
+
+    private function doSomethin(int $count): string
+    {
+        // ...
     }
 }
 
 
-class Admin extends User
-{
-    public string $role = 'superuser';
+ UWAGA:
+ W klasie potomnej możemy nadpisać każdą metodę z klasy rodzica łącznie z konstruktorem.
+ 
+ Deklaracja funkcji/metody to zbiór informacji o niej, czyli
+ - nazwa
+ - informacja o liści argumentów do niej przekazanych
+ - informacja o typie zwracanych danych
 
-    public function __construct()
+
+ 
+ Dobrą zasadą jest to aby utrzymywać jak największa spójność deklaracji konstruktora w dziecku z rodzicem. Mimo, że możemy go całkiem zmienić, 
+ to jednak przykładowo jeśli potrzebujemy dodać nowy argument, to dodajmy go na końcu listy argumentów, na początku pozostawiając te pochodzące z konstruktora rodzica.
+ Oczywiście jeśli nadal te argumenty są potrzebne.
+*/
+
+class Rodzic
+{
+    protected ?string $nazwa = null;
+
+    public function __construct(string $nazwa)
+    {   
+        var_dump('To jest konstruktor rodzica');
+        $this->nazwa = $nazwa;
+    }
+
+    public function pobierzNazwe(): ?string
     {
-        var_dump($this->login);
-        var_dump($this->role);
-        var_dump($this->topSecret);
-    } 
+        return $this->nazwa;
+    }
 }
 
-$user = new User();
-$client = new Client();
-$admin = new Admin();
+$obiektRodzica = new Rodzic('Testowa nazwa rodzica');
+var_dump($obiektRodzica->pobierzNazwe());
+
+
+class Dziecko extends Rodzic
+{
+    public function __construct(int $numer, string $tektst)
+    {
+        var_dump('To jest konstruktor dziecka');
+    }
+
+}
+
+$obiektDziecko = new Dziecko(1,'Testowa nazwa dziecka');
+var_dump($obiektDziecko->pobierzNazwe());
