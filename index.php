@@ -2350,6 +2350,79 @@ Konstruktorem dziecka przyslonilismy konstruktor rodzica
  Oczywiście jeśli nadal te argumenty są potrzebne.
 */
 
+
+
+/*
+*******************Klasa abstrakcyjna*********************
+Klasy abstrakcyjne w PHP to specjalne klasy, które mogą zawierać zarówno zdefiniowane metody, jak i metody abstrakcyjne. Metody abstrakcyjne to metody zadeklarowane
+, ale niezdefiniowane, co oznacza, że ich implementacja musi zostać dostarczona przez klasy dziedziczące.
+
+Cechy klas abstrakcyjnych:
+Nie można ich bezpośrednio tworzyć: Nie można utworzyć instancji klasy abstrakcyjnej. Służą one jedynie jako klasy bazowe.
+Mogą zawierać metody abstrakcyjne: Metody te muszą zostać zaimplementowane w klasach potomnych.
+Mogą zawierać metody zdefiniowane: Klasa abstrakcyjna może mieć normalne metody z pełną implementacją.
+Mogą zawierać właściwości: Klasy abstrakcyjne mogą mieć własne właściwości.
+
+Polimorfizm: Dzięki klasom abstrakcyjnym możesz tworzyć różne klasy, które dziedziczą wspólną funkcjonalność, ale różnią się szczegółami implementacji.
+
+ Aby oznaczyć klasę jako abstrakcyjną używamy słowa "abstract" przed słowem "class"
+ 
+UWAGA.
+ Jeśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy już w stanie zmienić w żaden sposób ich deklaracji,
+  tak jak mieliśmy pewną taką możliwość jeśli przesłanialiśmy zwykłe metody (nie abstrakcyjne) odziedziczone z klasy rodzica
+
+// class ClassParent {}
+// class Child extends ClassParent {};
+
+// $parent = new ClassParent();
+// $child = new Child();
+// var_dump($parent);
+// var_dump($child);
+
+abstract class SomeClass 
+{
+    protected string $property;
+
+    abstract public function doSomething(string $param1, array $param2): object;
+
+    public function property(): string
+    {
+        return $this->property;
+    }
+}
+
+class Test extends SomeClass
+{
+    public function doSomething(string $param1, array $param2): object
+    {
+        return new splClass();
+    }
+}
+
+
+
+abstract class Shape {
+    // Właściwość zdefiniowana
+    protected $color;
+
+    // Konstruktor
+    public function __construct($color) {
+        $this->color = $color;
+    }
+
+    // Metoda abstrakcyjna - musi być zaimplementowana w klasie potomnej
+    abstract public function getArea();
+
+    // Zdefiniowana metoda
+    public function getColor() {
+        return $this->color;
+    }
+}
+
+
+
+*/
+
 class Rodzic
 {
     protected ?string $nazwa = null;
