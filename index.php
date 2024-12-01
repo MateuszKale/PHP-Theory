@@ -2421,36 +2421,111 @@ abstract class Shape {
 
 
 
+abstract class SomeClass 
+{
+    protected string $property;
+
+    abstract public function doSomething(string $param1, array $param2): object;
+
+    public function property(): string
+    {
+        return $this->property;
+    }
+}
+
+class Test extends SomeClass
+{
+    public function doSomething(string $param1, array $param2): object
+    {
+        return new splClass();
+    }
+}
+
+
+abstract class Renderer
+{
+    protected string $text;
+
+    public function __construct(string $text)
+    {
+        $this->text = $text;
+    }
+
+    abstract public function render(): string;
+
+    public function text(): string
+    {
+        return $this->text;
+    }
+}
+
+
+class HtmlRenderer extends Renderer
+{
+    public function render(): string
+    {
+        return '<html><head></head><body><h2> ==>'
+         . $this->text 
+         . '<== </h2></body></html>';
+    }
+}
+
+class JsonRenderer extends Renderer
+{
+    public function render(): string
+    {
+        return json_encode($this->text);
+    }
+}
+
+
+class XmlRenderer extends Renderer
+{
+    public function render(): string
+    {
+        return "<xml><teks>{$this->text}</tekst></xml>";
+    }
+}
+
+$html = new HtmlRenderer('Tekst do wyświetlenia');
+echo $html->render();
+
+Klasy HtmlRenderer i JsonRenderer są już mocną wyspecjalizowane, dzięki temu są świadome w jaki sposób mają zaimplementować abstrakcyjną metodę odziedziczoną po rodzicu
+eśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy już w stanie zmienić w żaden sposób ich deklaracji, tak jak mieliśmy pewną taką możliwość jeśli przesłanialiśmy zwykłe metody (nie abstrakcyjne) odziedziczone z klasy rodzica
+
+
 */
 
-class Rodzic
+class Flat
 {
-    protected ?string $nazwa = null;
+    private const Built = 5;
+    public static $Sold = 0;
 
-    public function __construct(string $nazwa)
-    {   
-        var_dump('To jest konstruktor rodzica');
-        $this->nazwa = $nazwa;
+    public function SoldFlat()
+    {
+        return self::$Sold;
     }
 
-    public function pobierzNazwe(): ?string
+    public function __construct()
     {
-        return $this->nazwa;
+        if (self::$Sold < self::Built){
+            self::$Sold +=1;
+        }else{
+            echo "Wszystkie mieszkania zostały sprzedane \n";
+        }
     }
 }
 
-$obiektRodzica = new Rodzic('Testowa nazwa rodzica');
-var_dump($obiektRodzica->pobierzNazwe());
+
+$newFlat =new Flat();
+var_dump($newFlat);
+new Flat();
+new Flat();
+$newFlat1 =new Flat();
+echo($newFlat1::$Sold);
+new Flat();
+new Flat();
+new Flat();
 
 
-class Dziecko extends Rodzic
-{
-    public function __construct(int $numer, string $tektst)
-    {
-        var_dump('To jest konstruktor dziecka');
-    }
 
-}
-
-$obiektDziecko = new Dziecko(1,'Testowa nazwa dziecka');
-var_dump($obiektDziecko->pobierzNazwe());
