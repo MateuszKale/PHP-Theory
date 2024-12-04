@@ -2421,6 +2421,33 @@ abstract class Shape {
 
 
 
+
+interface CanFly {
+    public function fly();
+}
+
+abstract class Bird {
+    abstract public function makeSound();
+}
+
+class Sparrow extends Bird implements CanFly {
+    public function makeSound() {
+        return "Chirp!";
+    }
+
+    public function fly() {
+        return "Flying!";
+    }
+}
+
+$sparrow = new Sparrow();
+echo $sparrow->makeSound(); // Chirp!
+echo $sparrow->fly();       // Flying!
+
+
+
+
+
 abstract class SomeClass 
 {
     protected string $property;
@@ -2440,6 +2467,45 @@ class Test extends SomeClass
         return new splClass();
     }
 }
+
+
+abstract class Animal {
+    protected $name;
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    // Metoda abstrakcyjna - musi być zaimplementowana w klasach pochodnych
+    abstract public function makeSound();
+
+    // Metoda konkretna - może być używana bez zmian w klasach pochodnych
+    public function getName() {
+        return $this->name;
+    }
+}
+
+class Dog extends Animal {
+    public function makeSound() {
+        return "Woof!";
+    }
+}
+
+class Cat extends Animal {
+    public function makeSound() {
+        return "Meow!";
+    }
+}
+
+
+$dog = new Dog("Burek");
+echo $dog->getName() . " says " . $dog->makeSound(); // Burek says Woof!
+
+$cat = new Cat("Mruczek");
+echo $cat->getName() . " says " . $cat->makeSound(); // Mruczek says Meow!
+
+
+
 
 
 abstract class Renderer
@@ -2496,36 +2562,37 @@ eśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy ju
 
 */
 
-class Flat
-{
-    private const Built = 5;
-    public static $Sold = 0;
 
-    public function SoldFlat()
+class Rodzic
+{
+    protected ?string $nazwa = null;
+
+    public function __construct(string $nazwa)
     {
-        return self::$Sold;
+        $this->nazwa = $nazwa;
     }
 
-    public function __construct()
+    public function pobierzNazwe(): ?string
     {
-        if (self::$Sold < self::Built){
-            self::$Sold +=1;
-        }else{
-            echo "Wszystkie mieszkania zostały sprzedane \n";
-        }
+        return $this->nazwa;
     }
 }
 
+$newParent = new Rodzic('Rodzic');
 
-$newFlat =new Flat();
-var_dump($newFlat);
-new Flat();
-new Flat();
-$newFlat1 =new Flat();
-echo($newFlat1::$Sold);
-new Flat();
-new Flat();
-new Flat();
+var_dump($newParent->pobierzNazwe());
 
+class Dziecko extends Rodzic
+{
 
+    public function __construct(int $numer, string $tekst)
+    {
+        var_dump("To jest konstruktor dziecka \n");
+        parent::__construct($tekst);
+    }
 
+    
+}
+
+$newChild = new Dziecko(111,'Testowa nazwa dziecka');
+var_dump($newChild->pobierzNazwe());
