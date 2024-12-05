@@ -2348,6 +2348,48 @@ Konstruktorem dziecka przyslonilismy konstruktor rodzica
  Dobrą zasadą jest to aby utrzymywać jak największa spójność deklaracji konstruktora w dziecku z rodzicem. Mimo, że możemy go całkiem zmienić, 
  to jednak przykładowo jeśli potrzebujemy dodać nowy argument, to dodajmy go na końcu listy argumentów, na początku pozostawiając te pochodzące z konstruktora rodzica.
  Oczywiście jeśli nadal te argumenty są potrzebne.
+
+
+
+class Nums
+{
+    protected int $number1 = 0;
+    protected int $number2 = 0;
+
+    public function __construct(int $num1 ,int $num2)
+    {
+        $this->number1 = $num1;
+        $this->number2 = $num2;
+    }
+}
+
+
+class NumsAdd extends Nums
+{
+    public function addNumbers():int
+    {
+        return $this->number1 + $this->number2;
+    }
+}
+
+class PowerSum extends NumsAdd 
+{
+    public function Pow(int $power)
+    {
+        $sum = $this->addNumbers();
+        if ($power <= 0){
+            echo 'Nie mozna podnieść do potęgi 0';
+        }else{
+            return $sum ** $power;
+        }
+        
+    }
+}
+
+
+$addNums = new PowerSum(4,2);
+echo($addNums->Pow(3));
+
 */
 
 
@@ -2366,6 +2408,12 @@ Mogą zawierać właściwości: Klasy abstrakcyjne mogą mieć własne właściw
 Polimorfizm: Dzięki klasom abstrakcyjnym możesz tworzyć różne klasy, które dziedziczą wspólną funkcjonalność, ale różnią się szczegółami implementacji.
 
  Aby oznaczyć klasę jako abstrakcyjną używamy słowa "abstract" przed słowem "class"
+
+klasa abstrakcyjna jest wzorcem dla klas potomnych.
+
+Aby oznaczyć klasę jako abstrakcyjną używamy słowa "abstract" przed słowem "class"
+
+Klasy abstrakcyjnej nie mozna zinstancjonowac(nie mozna stworzyc obiektu)
  
 UWAGA.
  Jeśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy już w stanie zmienić w żaden sposób ich deklaracji,
@@ -2448,27 +2496,6 @@ echo $sparrow->fly();       // Flying!
 
 
 
-abstract class SomeClass 
-{
-    protected string $property;
-
-    abstract public function doSomething(string $param1, array $param2): object;
-
-    public function property(): string
-    {
-        return $this->property;
-    }
-}
-
-class Test extends SomeClass
-{
-    public function doSomething(string $param1, array $param2): object
-    {
-        return new splClass();
-    }
-}
-
-
 abstract class Animal {
     protected $name;
 
@@ -2505,6 +2532,7 @@ $cat = new Cat("Mruczek");
 echo $cat->getName() . " says " . $cat->makeSound(); // Mruczek says Meow!
 
 
+****************************Renderer*************************
 
 
 
@@ -2563,36 +2591,42 @@ eśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy ju
 */
 
 
-class Rodzic
+class Nums
 {
-    protected ?string $nazwa = null;
+    protected int $number1 = 0;
+    protected int $number2 = 0;
 
-    public function __construct(string $nazwa)
+    public function __construct(int $num1 ,int $num2)
     {
-        $this->nazwa = $nazwa;
-    }
-
-    public function pobierzNazwe(): ?string
-    {
-        return $this->nazwa;
+        $this->number1 = $num1;
+        $this->number2 = $num2;
     }
 }
 
-$newParent = new Rodzic('Rodzic');
 
-var_dump($newParent->pobierzNazwe());
-
-class Dziecko extends Rodzic
+class NumsAdd extends Nums
 {
-
-    public function __construct(int $numer, string $tekst)
+    public function addNumbers():int
     {
-        var_dump("To jest konstruktor dziecka \n");
-        parent::__construct($tekst);
+        return $this->number1 + $this->number2;
     }
-
-    
 }
 
-$newChild = new Dziecko(111,'Testowa nazwa dziecka');
-var_dump($newChild->pobierzNazwe());
+class PowerSum extends NumsAdd
+{
+    public function Pow(int $power)
+    {
+        $sum = $this->addNumbers();
+        if ($power <= 0){
+            echo 'Nie mozna podnieść do potęgi 0';
+        }else{
+            return $sum ** $power;
+        }
+        
+    }
+}
+
+
+$addNums = new PowerSum(4,2);
+echo($addNums->Pow(3));
+
