@@ -2532,6 +2532,10 @@ $cat = new Cat("Mruczek");
 echo $cat->getName() . " says " . $cat->makeSound(); // Mruczek says Meow!
 
 
+ Jeśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy już w stanie zmienić w żaden sposób ich deklaracji,
+  tak jak mieliśmy pewną taką możliwość jeśli przesłanialiśmy zwykłe metody (nie abstrakcyjne) odziedziczone z klasy rodzica
+
+
 ****************************Renderer*************************
 
 
@@ -2589,44 +2593,89 @@ eśli implementujemy metody abstrakcyjne w klasach potomnych to nie jesteśmy ju
 
 
 */
+/*
 
+***************************Interfrejsy************************
 
-class Nums
+W interfejsie znajdują się deklaracje metod oraz stałe które mają się znaleźć w klasach,
+ które ten interfejs implementują. 
+ 
+ Aby utworzyć interfejs używamy słowa: "interface",
+ natomiast aby go zaimplementować należy użyć "implements"
+
+ 
+interface ExampleInterface
 {
-    protected int $number1 = 0;
-    protected int $number2 = 0;
-
-    public function __construct(int $num1 ,int $num2)
+    public const SOMETHING = 'bar';
+    public function doSomething1(int $arg): string;
+    public function doSomething2(string $arg1, string $arg2): void;
+}
+ 
+class Example implements ExampleInterface
+{
+    public function doSomething1(int $arg): string
     {
-        $this->number1 = $num1;
-        $this->number2 = $num2;
+        return 'bar';
+    }
+
+    public function doSomething2(string $arg1, string $arg2): void
+    {
+        // ...
     }
 }
 
+Co musimy wiedzieć o interfejsach:
+ - mogą zawierać tylko stałe i deklaracje metod
+ - stałe i metody muszą być publiczne
+ - metody nie mogą zawierać ciała, czyli implementacji
+ - klasa może implementować więcej niz jeden interfejs
+ - interfejsy mogą dziedziczyć po innych interfejsach ale nie po klasach
+ - w klasach, które implementują interfejs nie można zmieniać deklaracji metod pochodzących z interfejsu
+ - klasa które implementuje interfejs może mieć równie inne metody nie pochodzące z interfejsu
 
-class NumsAdd extends Nums
+*/
+/*
+
+****Roznice pomiedzy klasa abstrakcyjna a intefrejsem*******
+
+ Podstawową różnicą jest fakt, ze klasa abstrakcyjna może zawierać oprócz metod abstrakcyjnych 
+ inne metody w pełni zaimplementowane. Może również zawierać właściwości, oraz może używać
+ modyfikatorów nie tylko publicznych do określania widoczności właściwości/metod.
+  
+ Pamiętajmy tez o tym, ze to jest klasa, czyli podlega dziedziczeniu, w związku z tym klasa potomna
+ może dziedziczyć tylko po jednej klasie. Natomiast jak juz wiemy, klasa może implementować wiele 
+ interfejsów.
+
+ Klasa abstrakcyjna również moze implementować interfejsy
+ 
+ interface RenderInterface
 {
-    public function addNumbers():int
+    public function render(string $text): string;
+}
+
+class HtmlRenderer implements RenderInterface
+{
+    public function render(string $text): string
     {
-        return $this->number1 + $this->number2;
+        return '<html><head></head><body><div>' . $text . '</div></body></html>';
     }
 }
 
-class PowerSum extends NumsAdd
+class JsonRenderer implements RenderInterface
 {
-    public function Pow(int $power)
+    public function render(string $text): string
     {
-        $sum = $this->addNumbers();
-        if ($power <= 0){
-            echo 'Nie mozna podnieść do potęgi 0';
-        }else{
-            return $sum ** $power;
-        }
-        
+        return json_encode($text);
     }
 }
 
+$htmlRenderer = new HtmlRenderer();
+$html1 = $htmlRenderer->render('cokolwiek');
+$html2 = $htmlRenderer->render('cokolwiek dddd');
 
-$addNums = new PowerSum(4,2);
-echo($addNums->Pow(3));
+var_dump($html1);
+var_dump($html2);
+*/
+
+
 
