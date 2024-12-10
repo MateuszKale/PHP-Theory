@@ -2633,10 +2633,90 @@ Co musimy wiedzieć o interfejsach:
  - w klasach, które implementują interfejs nie można zmieniać deklaracji metod pochodzących z interfejsu
  - klasa które implementuje interfejs może mieć równie inne metody nie pochodzące z interfejsu
 
+
+
+ interface Flyable {
+    public function fly();
+}
+
+interface Walkable {
+    public function walk();
+}
+
+class Bird implements Flyable, Walkable {
+    public function fly() {
+        echo "Flying...\n";
+    }
+
+    public function walk() {
+        echo "Walking...\n";
+    }
+}
+
+$bird = new Bird();
+$bird->fly(); // Wyjście: Flying...
+$bird->walk(); // Wyjście: Walking...
+
+
+
+
+
+interface Printable {
+    public function print();
+}
+
+interface Scannable {
+    public function scan();
+}
+
+class Printer implements Printable {
+    public function print() {
+        echo "Printing...\n";
+    }
+}
+
+class Scanner implements Scannable {
+    public function scan() {
+        echo "Scanning...\n";
+    }
+}
+
+
 */
 /*
 
 ****Roznice pomiedzy klasa abstrakcyjna a intefrejsem*******
+
+Deklaracja
+interface InterfaceName {} - interfejs
+abstract class ClassName {} - klasa abstrakcyjna
+
+
+Implementacja metod
+Wszystkie metody muszą być abstrakcyjne. - - interfejs
+Może zawierać zarówno metody abstrakcyjne, jak i zaimplementowane.  - klasa abstrakcyjna
+
+
+Właściwości
+Nie może zawierać właściwości. - - interfejs
+Może zawierać właściwości (zmienne).  - klasa abstrakcyjna
+
+
+Dziedziczenie
+Klasa może implementować wiele interfejsów. -- interfejs
+Klasa może dziedziczyć tylko jedną klasę abstrakcyjną.  - klasa abstrakcyjna
+
+
+Modyfikatory dostępu
+Wszystkie metody są domyślnie publiczne. -- interfejs
+Metody mogą mieć dowolny modyfikator dostępu.  - klasa abstrakcyjna
+
+
+Cel
+Definiowanie kontraktu dla klas. -- interfejs
+Dostarczenie podstawowej implementacji dla klas potomnych.  - klasa abstrakcyjna
+
+
 
  Podstawową różnicą jest fakt, ze klasa abstrakcyjna może zawierać oprócz metod abstrakcyjnych 
  inne metody w pełni zaimplementowane. Może również zawierać właściwości, oraz może używać
@@ -2678,4 +2758,34 @@ var_dump($html2);
 */
 
 
+/*
+ *******************************FINAL**************************************
+ 
+ Język PHP daje możliwość zabronienie dziedziczenia.
+ Uzyskuje się to przez użycie słowa "final" przed "class"
+ 
+ Klasa która jest oznaczona jako finalna nie może być dziedziczona. 
+ */
 
+
+
+interface Renderable
+{
+    public function render(string $text): string;
+}
+
+class HtmlRenderer implements Renderable
+{
+    public function render(string $text): string
+    {
+        return '<html><head></head><body><div>' . $text . '</div></body></html>';
+    }
+}
+
+class JsonRenderer implements Renderable
+{
+    public function render(string $text): string
+    {
+        return json_encode($text);
+    }
+}
