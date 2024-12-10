@@ -2765,6 +2765,29 @@ var_dump($html2);
  Uzyskuje się to przez użycie słowa "final" przed "class"
  
  Klasa która jest oznaczona jako finalna nie może być dziedziczona. 
+
+
+ class Vehicle
+{
+    final public function doSomething(): void
+    {
+        echo 'foo';
+    }
+
+    public function doSomething2(): void
+    {
+
+    }
+}
+
+class Car extends Vehicle
+{
+    public function doSomething2(): void
+    {
+        echo 'bar';
+    }
+}
+    
  */
 
 
