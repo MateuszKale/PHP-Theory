@@ -2787,28 +2787,40 @@ class Car extends Vehicle
         echo 'bar';
     }
 }
-    
+
  */
 
+/*
+
+ *******************NAMESPACES**************************
+
+  Głównym zadaniem przestrzeni nazw jest zapobieganie kolizjom pomiędzy identycznymi nazwami klas.
+ W PHP nie mogą jednocześnie istnieć dwie klasy o tych samych nazwach.
+
+ Aby zadeklarować własną przestrzeń nazw musimy użyć słowa: "namespace"
+ Deklaracja przestrzeni musi się znajdować na samym początku pliku zaraz pod linią, 
+ gdzie deklarujemy chęć użycia trybu ścisłego "strict_types"
+
+ // <?php
+
+// declare(strict_types=1);
+
+// namespace Application;
 
 
-interface Renderable
-{
-    public function render(string $text): string;
-}
+ Nazwa może być dowolna,  jednak przyjęło się zasadę ze przestrzeń nazw jest powiązana z lokalizacją pliku klasy w strukturze katalogów
 
-class HtmlRenderer implements Renderable
-{
-    public function render(string $text): string
-    {
-        return '<html><head></head><body><div>' . $text . '</div></body></html>';
-    }
-}
+ 
+<?php
 
-class JsonRenderer implements Renderable
-{
-    public function render(string $text): string
-    {
-        return json_encode($text);
-    }
-}
+declare(strict_types=1);
+
+namespace App\Path\To\Class;
+
+Aby użyć klasy z danej przestrzeni musimy ją najpierw zaimportować do naszego kodu.
+ Dzieje się to za pomocą komendy "use"
+
+ use App\Path\To\Class\ClassName;
+
+*/
+
