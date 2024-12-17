@@ -2824,3 +2824,134 @@ Aby użyć klasy z danej przestrzeni musimy ją najpierw zaimportować do naszeg
 
 */
 
+/*
+
+Include - require
+
+include
+Używane do włączenia i wykonania kodu z innego pliku.
+Jeśli plik nie zostanie znaleziony, PHP wygeneruje ostrzeżenie (warning), ale skrypt będzie kontynuował działanie.
+
+include_once
+Działa jak include, ale zapewnia, że dany plik zostanie załączony tylko raz, nawet jeśli zostanie wywołany wielokrotnie w kodzie. 
+Jest to przydatne w unikaniu problemów związanych z wielokrotnym definiowaniem tych samych funkcji, klas itp.
+
+require
+Podobne do include, ale jeśli plik nie zostanie znaleziony, PHP wygeneruje błąd krytyczny (fatal error), a skrypt zostanie zatrzymany.
+
+require_once
+Działa jak require, ale z mechanizmem zapobiegania wielokrotnemu załączaniu tego samego pliku (jak w include_once).
+
+
+Używaj require i require_once do włączania krytycznych plików, które są wymagane do poprawnego działania aplikacji.
+Używaj include i include_once dla opcjonalnych plików, które nie zatrzymają skryptu w razie problemów.
+
+GET i POST
+
+get
+
+W PHP zmienna globalna $_GET jest superglobalną tablicą asocjacyjną, która przechowuje dane przesyłane do 
+skryptu przy użyciu metody HTTP GET. Dane te są zazwyczaj przekazywane w adresie URL jako parametry zapytania.
+
+Cechy $_GET
+Superglobalna:
+
+Jest dostępna w całym skrypcie PHP, bez potrzeby wcześniejszego deklarowania jej jako globalnej.
+Przechowuje dane przesyłane w URL:
+
+Dane są przesyłane jako część adresu URL, 
+
+Tablica asocjacyjna:
+
+Klucze to nazwy parametrów z URL-a, a wartości to przypisane do nich dane.
+Bezpieczeństwo:
+
+Dane w $_GET pochodzą od użytkownika, co oznacza, że są potencjalnie podatne na manipulacje. Z tego powodu należy je zawsze walidować i sanitizować przed użyciem.
+
+Filtrowanie danych: Aby zapobiec atakom, np. XSS lub SQL Injection, należy używać funkcji takich jak:
+
+Walidacja danych: Upewnij się, że dane w $_GET są zgodne z oczekiwanym formatem.
+
+Unikaj przesyłania poufnych danych: Dane w $_GET są widoczne w adresie URL, dlatego nie należy przesyłać w ten sposób haseł czy innych poufnych informacji.
+
+
+// URL: http://example.com/skrypt.php?imie=Jan&wiek=30
+
+echo "Imię: " . $_GET['imie']; // Wyświetli "Imię: Jan"
+echo "Wiek: " . $_GET['wiek']; // Wyświetli "Wiek: 30"
+
+
+Post
+
+W PHP zmienna globalna $_POST jest superglobalną tablicą asocjacyjną, 
+która przechowuje dane przesyłane do skryptu za pomocą metody HTTP POST. Jest najczęściej używana do odbierania danych z formularzy HTML.
+
+
+
+Cechy $_POST
+Superglobalna:
+
+Dostępna w całym skrypcie PHP bez potrzeby jej wcześniejszego deklarowania jako globalnej.
+Przechowuje dane przesyłane metodą POST:
+
+Dane z formularza przesłane metodą POST są dostępne w tablicy $_POST.
+Tablica asocjacyjna:
+
+Klucze odpowiadają nazwom pól formularza (name), a wartości to dane przesłane przez użytkownika.
+Bezpieczeństwo:
+
+Dane w $_POST są niewidoczne w adresie URL, co czyni tę metodę bardziej odpowiednią do przesyłania poufnych informacji (np. hasła).
+Wymaga walidacji i sanitizacji, ponieważ dane te mogą być manipulowane przez użytkownika.
+
+
+
+
+*/
+
+/*
+*********************Bazy Danych******************
+MySQL - Baza relacyjna
+bazy danych służą do przechowywania informacji.
+
+
+Jedną z głównych klasyfikacji jest podział na relacyjne i nie-relacyjne bazy danych.
+Relacyjne jak sama nazwa wskazuje, oznacza, że dane które umieszczamy w bazie są ze sobą w jakiś sposób powiązane.
+
+Alternatywą do relacyjnych baz danych są bazy nie-relacyjne czyli tak zwane NoSql.
+
+MongoDb - dokumentowa baza danych
+
+Neo4j - grafowa baza danych
+
+Popularne bazy danych - MySql, PostgreSql, SqlLite, MSSQL, Oracle. 
+
+SQL - Structured Query Language jest to "język" za pomocą którego komunikujemy się z bazą danych.
+
+Co to jest tabela, relacja, rekord, klucz
+
+Najpopularniejszym obrazowym porównaniem bazy danych do czegoś z czym mamy styczność, 
+może nie na co dzień, ale w życiu pewnie się z tym zetknęliśmy jest porównanie do Excela.
+
+Baza danych podobnie jak plik excela przechowuje dane.
+
+Dane pomiędzy arkuszami mogą być powiązane, np w jednym przechowujemy listę filmów wyświetlanych w "naszym kinie"
+a w drugim szczegółową rozpiskę o dacie projekcji.
+
+Odpowiednikiem arkuszy w bazie danych są tabele. 
+W bazie możemy mieć wiele tabel. Dane pomiędzy tabelami mogą być ze sobą powiązane, to powiązanie nazywamy relacją. 
+
+
+Rozróżniamy trzy typy relacji:
+
+PRZYKLADY Z ODZWOROWANIA SWIATA RZECZYWISTEGO 
+
+- 1:1 - jedna osoba posiada tylko i wyłącznie jeden adres zameldowania
+- 1:n - jedna osoba może mieć wiele kont bankowych, jednak te konta należą tylko i wyłącznie do niej (przykład nie obejmuje kont współdzielonych)
+- n:m - jedna osoba może należeć do wielu grup na FB jak również do jednej grupy może należeć wiele osób
+
+Odpowiednikiem w bazie danych są kolumny i rekordy
+
+kolumna => kolumna
+wiersz => rekord 
+Warto zaznaczyć że w bazie musimy wybrać typ danych które chcemy w danej kolumnie przechowywać np INT, TEXT, DATE, VARCHAR
+*/
