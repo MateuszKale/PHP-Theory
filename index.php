@@ -2955,3 +2955,82 @@ kolumna => kolumna
 wiersz => rekord 
 Warto zaznaczyć że w bazie musimy wybrać typ danych które chcemy w danej kolumnie przechowywać np INT, TEXT, DATE, VARCHAR
 */
+
+/*
+
+***************Typy w SQL****************
+
+
+Mamy cztery podstawowe grupy typów które mogą być przechowywane:
+    - liczbowe
+    - tekstowe
+    - data i czas
+    - binarne
+
+ TEKSTOWE
+    - char - pole znakowe o stałej długości znaków (0 - 255 bajtów)
+    - varchar - pole znakowe o zmiennej długości znaków, definiujemy maksymalną (0 - 255 bajtów)
+    - text - kolumna tekstowa zawierająca maksymalnie 65 535 bajtów
+
+    LICZBOWE
+    - int - bajtowa wartość całkowita
+    - float - liczba zmiennoprzecinkowa
+    
+    DATA I CZAS
+    - date - data bez czasu
+    - datetime - data z czasem
+    - timestamp - liczba sekund od 1970-01-01 00:00:00 (od początku epoki systemu UNIX)
+
+
+        Podstawowe zapytania, których będziemy używać:
+    
+    SELECT
+    INSERT
+    UPDATE
+    DELETE
+
+
+    SELECT - wyciąganie danych
+
+        SELECT 
+            select_expr [, select_expr …] 
+        FROM 
+            tbl_name 
+        [WHERE where_condition]
+        [ORDER BY {col_name | expr | position} [ASC | DESC], …]
+        [LIMIT {[offset,] row_count | row_count OFFSET offset}]
+
+        
+        Pełną konstrukcja : https://dev.mysql.com/doc/refman/8.0/en/select.html
+
+        SELECT ... JOIN
+        INNER, LEFT, RIGHT
+
+    INSERT - dodawanie nowych rekordów: https://dev.mysql.com/doc/refman/8.0/en/insert.html
+
+        INSERT
+            [INTO] tbl_name
+            [(col_name [, col_name] ...)]
+            { {VALUES | VALUE} (value_list) [, (value_list)] ... | VALUES row_constructor_list}
+
+
+        INSERT INTO tbl_name (id, title, desc) VALUES(11, 'test', 'desc');
+
+
+    UPDATE - aktualizacja rekordów
+
+        UPDATE tbl_name 
+            SET col1={expr1|DEFAULT} [,col2={expr2|DEFAULT}] …
+            [WHERE where_condition]
+
+        UPDATE t1 SET col1 = col1 + 1, col2 = col1;
+  
+        
+    DELETE - usuwanie rekordów
+
+        DELETE FROM tbl_name 
+            [WHERE where_condition]
+            [LIMIT row_count]
+
+        DELETE FROM emails LIMIT 2
+*/
