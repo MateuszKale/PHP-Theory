@@ -3033,4 +3033,83 @@ Mamy cztery podstawowe grupy typów które mogą być przechowywane:
             [LIMIT row_count]
 
         DELETE FROM emails LIMIT 2
+
+
+
+
+Co oznacza select,from,where i limit
+
+Select
+
+Wybiera kolumny, które chcesz zwrócić z tabeli.
+
+SELECT Name, City 
+FROM Customers;
+
+
+SELECT * zwraca wszystkie kolumny z tabeli.
+
+
+From
+
+Określa tabelę, z której pobierane są dane.
+
+SELECT * 
+FROM Orders;
+
+
+Pobiera wszystkie dane z tabeli Orders.
+
+
+Where
+
+Filtruje dane, zwracając tylko te rekordy, które spełniają określony warunek.
+
+SELECT * 
+FROM Customers 
+WHERE City = 'London';
+
+
+Zwraca wszystkie rekordy z tabeli Customers, w których kolumna City ma wartość 'London'.
+
+
+Możliwości warunków:
+
+Porównania: =, <>, >, <, >=, <=
+Operatory logiczne: AND, OR, NOT
+Wyszukiwanie wzorców: LIKE (np. Name LIKE 'J%' - imiona zaczynające się na "J")
+Sprawdzanie wartości w liście: IN (np. City IN ('London', 'Paris')).
+
+
+Limit
+
+Ogranicza liczbę zwracanych rekordów.
+
+SELECT * 
+FROM Customers
+LIMIT 5;
+
+
+Zwraca maksymalnie 5 rekordów z tabeli Customers.
+
+
+Przydatne, gdy interesuje Cię tylko część danych, np. pierwsze 10 wyników.
+Używane w połączeniu z ORDER BY, aby pobrać najnowsze lub najstarsze rekordy.
+
+Połączenie wszystkiego 
+
+SELECT Name, City 
+FROM Customers 
+WHERE City = 'London'
+LIMIT 5;
+
+
+SELECT Name, City: Wybiera kolumny Name i City.
+FROM Customers: Dane pochodzą z tabeli Customers.
+WHERE City = 'London': Tylko rekordy, gdzie City = 'London'.
+LIMIT 5: Zwraca maksymalnie 5 takich rekordów.
+
+Strona do cwiczen ssql 
+
+https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_like_not
 */
