@@ -3121,5 +3121,19 @@ Zeby ustalic kierunki sortowania uzywamy DESC albo ASC
 DESC - Malejąco
 ASC - Rosnąco
 
+
 Dobra zasada jest to zeby jawnie podawac kierunki sortowania
+
+
+
+Join
+
+
+INNER JOIN – Zwraca tylko te rekordy, które mają dopasowanie w obu tabelach.
+LEFT JOIN (lub LEFT OUTER JOIN) – Zwraca wszystkie rekordy z lewej tabeli i dopasowane rekordy z prawej tabeli. Jeśli nie ma dopasowania, wartości z prawej tabeli będą NULL.
+RIGHT JOIN (lub RIGHT OUTER JOIN) – Zwraca wszystkie rekordy z prawej tabeli i dopasowane rekordy z lewej tabeli. Jeśli nie ma dopasowania, wartości z lewej tabeli będą NULL.
+FULL JOIN (lub FULL OUTER JOIN) – Zwraca wszystkie rekordy z obu tabel, w tym te bez dopasowań (nieobsługiwane natywnie w MySQL, można uzyskać za pomocą UNION).
+
+
 */
+
