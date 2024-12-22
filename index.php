@@ -3115,4 +3115,11 @@ Order by - w jakiej kolejnosci ma bys wyswietlone
 Strona do cwiczen ssql 
 
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_like_not
+
+
+Zeby ustalic kierunki sortowania uzywamy DESC albo ASC
+DESC - Malejąco
+ASC - Rosnąco
+
+Dobra zasada jest to zeby jawnie podawac kierunki sortowania
 */
