@@ -3109,6 +3109,9 @@ FROM Customers: Dane pochodzą z tabeli Customers.
 WHERE City = 'London': Tylko rekordy, gdzie City = 'London'.
 LIMIT 5: Zwraca maksymalnie 5 takich rekordów.
 
+
+Order by - w jakiej kolejnosci ma bys wyswietlone
+
 Strona do cwiczen ssql 
 
 https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_like_not
