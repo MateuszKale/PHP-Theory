@@ -3137,3 +3137,41 @@ FULL JOIN (lub FULL OUTER JOIN) – Zwraca wszystkie rekordy z obu tabel, w tym 
 
 */
 
+
+/*
+
+**************PDO EXCEPTION*************************
+
+W PHP, PDOException to klasa wyjątków używana przez bibliotekę PDO (PHP Data Objects) do obsługi błędów związanych z operacjami bazodanowymi. Gdy PDO napotka błąd, taki jak nieudane połączenie 
+z bazą danych czy nieprawidłowe zapytanie SQL, generuje obiekt PDOException, który zawiera szczegóły dotyczące błędu, w tym kod błędu i wiadomość opisującą problem.
+
+Przyklad uzycia pdo 
+
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=test', 'username', 'password');
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    $sql = "INSERT INTO users (name, email) VALUES (:name, :email)";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':name' => 'Jan Kowalski', ':email' => 'jan@example.com']);
+} catch (PDOException $e) {
+    echo 'Błąd PDO: ' . $e->getMessage();
+}
+
+
+wyjasnienie szczegolowe powyzszego przykladu
+
+
+Tworzymy nowe połączenie PDO z bazą danych MySQL.
+
+Ustawiamy tryb raportowania błędów na PDO::ERRMODE_EXCEPTION, co powoduje, że PDO będzie rzucać wyjątki w przypadku błędów.
+
+Przygotowujemy i wykonujemy zapytanie SQL za pomocą metod prepare i execute.
+
+Jeśli wystąpi błąd podczas połączenia lub wykonywania zapytania, zostanie rzucony wyjątek PDOException, który jest przechwytywany w bloku catch, a następnie wyświetlana jest wiadomość o błędzie.
+
+
+
+
+Dzięki obsłudze wyjątków za pomocą PDOException możemy lepiej zarządzać błędami w aplikacjach PHP, zapewniając bardziej przejrzyste i kontrolowane reagowanie na problemy związane z bazą danych.
+*/
