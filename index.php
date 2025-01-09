@@ -3175,3 +3175,128 @@ Jeśli wystąpi błąd podczas połączenia lub wykonywania zapytania, zostanie 
 
 Dzięki obsłudze wyjątków za pomocą PDOException możemy lepiej zarządzać błędami w aplikacjach PHP, zapewniając bardziej przejrzyste i kontrolowane reagowanie na problemy związane z bazą danych.
 */
+
+
+/*
+
+W PHP obsługa wyjątków opiera się na hierarchii klas,
+które dzielą się na dwa główne typy: Exception i Error, z których oba implementują interfejs bazowy Throwable. Przyjrzyjmy się każdej z tych klas, ich hierarchii i zastosowaniom.
+
+
+Throwable to interfejs bazowy, który wprowadza wspólną funkcjonalność dla wyjątków i błędów. Wszystkie klasy reprezentujące błędy i wyjątki w PHP muszą implementować ten interfejs.
+
+Interfejs Throwable wprowadza następujące metody:
+
+getMessage(): string – Zwraca komunikat błędu.
+getCode(): int – Zwraca kod błędu (opcjonalny).
+getFile(): string – Zwraca nazwę pliku, w którym wystąpił wyjątek.
+getLine(): int – Zwraca numer linii, w której wystąpił wyjątek.
+getTrace(): array – Zwraca ślad stosu (stack trace) jako tablicę.
+getTraceAsString(): string – Zwraca ślad stosu jako ciąg znaków.
+__toString(): string – Zwraca reprezentację obiektu w formie ciągu znaków.
+
+
+
+Klasa Exception jest podstawową klasą do obsługi wyjątków w PHP. Używana jest do obsługi błędów w kodzie aplikacji.
+
+Kluczowe cechy:
+Wyjątki powinny być używane w przypadku sytuacji, które mogą być przewidziane i obsłużone przez programistę.
+Wyjątki mogą być rzucone (throw) i przechwycone (catch) za pomocą bloku try-catch.
+
+
+try {
+    throw new Exception("To jest wyjątek", 100);
+} catch (Exception $e) {
+    echo "Złapano wyjątek: " . $e->getMessage() . " z kodem: " . $e->getCode();
+}
+
+
+
+Pochodne klasy:
+LogicException – Wyjątki związane z błędami w logice programu (np. błędne użycie funkcji).
+BadFunctionCallException
+BadMethodCallException
+InvalidArgumentException
+LengthException
+OutOfRangeException
+RuntimeException – Wyjątki związane z błędami w czasie wykonywania programu.
+OutOfBoundsException
+OverflowException
+UnderflowException
+UnexpectedValueException
+
+
+
+Klasa Error w PHP reprezentuje błędy krytyczne, które występują na poziomie środowiska wykonawczego. Została wprowadzona w PHP 7, aby rozróżnić błędy (np. błędy typów) od wyjątków (Exception).
+
+Kluczowe cechy:
+Błędy Error powinny być używane w sytuacjach krytycznych, które zazwyczaj są wynikiem błędów programistycznych.
+Podobnie jak wyjątki, błędy mogą być rzucane (throw) i przechwytywane (catch), ale w wielu przypadkach nie powinny być obsługiwane, a raczej naprawione w kodzie.
+
+
+
+try {
+    $result = 10 / 0; // Powoduje DivisionByZeroError
+} catch (Error $e) {
+    echo "Złapano błąd: " . $e->getMessage();
+}
+
+
+ArithmeticError – Błędy arytmetyczne.
+DivisionByZeroError – Dzielnie przez zero.
+AssertionError – Błędy związane z niepowodzeniem assert().
+TypeError – Błędy związane z niezgodnością typów.
+ParseError – Błędy związane z analizą kodu (parse).
+ValueError – Błędy związane z nieprawidłowymi wartościami.
+
+
+PDOException jest specyficznym wyjątkiem pochodzącym z klasy Exception. Reprezentuje błędy związane z użyciem PDO (PHP Data Objects), 
+czyli interfejsu do komunikacji z bazami danych.
+
+Kluczowe cechy:
+Rzucane, gdy operacja PDO kończy się błędem.
+Posiada dodatkową właściwość errorInfo, która zawiera szczegóły o błędzie zwracane przez bazę danych.
+
+
+try {
+    $pdo = new PDO('mysql:host=localhost;dbname=test', 'root', 'wrong_password');
+} catch (PDOException $e) {
+    echo "Błąd PDO: " . $e->getMessage();
+    print_r($e->errorInfo);
+}
+
+Każda klasa pochodna od Throwable (zarówno Exception, jak i Error) udostępnia te same podstawowe metody, które są opisane w sekcji o Throwable. Pozwala to na jednolitą obsługę błędów i wyjątków.
+
+Exception
+Kiedy używać:
+Do obsługi przewidywalnych błędów aplikacji, które wynikają z problemów biznesowych lub użytkownika, a nie z błędów programistycznych.
+W sytuacjach, gdy błąd nie jest krytyczny i aplikacja może kontynuować działanie po jego obsłużeniu.
+
+Error
+Kiedy używać:
+Do obsługi błędów krytycznych wynikających z problemów w kodzie, które powinny być poprawione przez programistę, a nie obsłużone w czasie działania aplikacji.
+Gdy sytuacja jest na tyle poważna, że aplikacja nie może kontynuować działania.
+
+PDOException
+Kiedy używać:
+Do obsługi błędów związanych z komunikacją z bazą danych za pomocą PDO.
+W szczególności w sytuacjach takich jak:
+Próba połączenia z nieistniejącą bazą danych.
+Wykonywanie błędnych zapytań SQL.
+Problemy z uwierzytelnieniem użytkownika.
+
+
+Ogólne zasady użycia
+Wyjątki (Exception):
+Używaj ich do sytuacji przewidywalnych i związanych z logiką aplikacji.
+Każdy wyjątek powinien być przechwytywany i obsługiwany w sposób, który pozwala aplikacji na kontynuowanie działania.
+Błędy (Error):
+Są przeznaczone dla błędów programistycznych, których nie powinno się obsługiwać w czasie działania aplikacji.
+Można je przechwytywać w celu np. zapisu logów, ale zaleca się naprawienie błędów w kodzie.
+PDO i inne specyficzne wyjątki:
+Obsługuj je w miejscach, gdzie komunikujesz się z zewnętrznymi systemami, które mogą zwrócić błąd (np. baza danych, API).
+
+
+
+
+*/
